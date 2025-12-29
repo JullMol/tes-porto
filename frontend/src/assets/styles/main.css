@@ -1,8 +1,8 @@
+@import "./variables.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "./variables.css";
 
 * {
   margin: 0;
@@ -43,6 +43,12 @@ html {
   @apply bg-purple-500 rounded hover:bg-purple-600;
 }
 
+@layer base {
+  body {
+    @apply bg-[#0b0b0f] text-slate-200 antialiased;
+  }
+}
+
 /* Smooth transitions & components */
 @layer components {
   .transition-smooth {
@@ -76,6 +82,15 @@ html {
   .section-subtitle {
     @apply text-slate-400 text-lg max-w-2xl;
   }
+
+  /* Background Gradients */
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+  }
+
+  .bg-gradient-purple {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
 }
 
 /* Gradient text */
@@ -104,13 +119,16 @@ html {
 }
 
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
+  0%, 100% {
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-30px);
   }
+}
+
+.animate-float {
+  animation: float 12s ease-in-out infinite;
 }
 
 @keyframes pulse-glow {

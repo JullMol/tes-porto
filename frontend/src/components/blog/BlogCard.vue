@@ -1,14 +1,17 @@
 <template>
-  <div class="blog-card">
-    <h3>{{ title }}</h3>
-    <p>{{ excerpt }}</p>
-    <small>{{ date }}</small>
+  <div
+    class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 hover:border-purple-500/40 transition"
+  >
+    <h3 class="font-semibold mb-2">{{ post.title }}</h3>
+    <p class="text-sm text-slate-400 line-clamp-3">
+      {{ post.excerpt }}
+    </p>
   </div>
 </template>
 
 <script setup>
 defineProps({
-  title: String,
+  post: Object,
   excerpt: String,
   date: String,
 });

@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div class="bg-[#0b0b0f] text-slate-200 min-h-screen">
     <Navbar />
-    <main class="main-content">
+    <main>
       <router-view />
     </main>
     <Footer />
@@ -9,13 +9,6 @@
 </template>
 
 <script setup>
-import Navbar from './components/layout/Navbar.vue'
-import Footer from './components/layout/Footer.vue'
+import Navbar from "@/components/layout/Navbar.vue";
+import Footer from "@/components/layout/Footer.vue";
 </script>
-
-<style scoped>
-.main-content {
-  min-height: calc(100vh - 120px);
-  padding: 20px;
-}
-</style>

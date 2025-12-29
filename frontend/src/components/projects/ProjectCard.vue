@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card-glass group overflow-hidden cursor-pointer hover:border-purple-500/50 transition-smooth"
+    class="group relative rounded-2xl border border-slate-800 bg-slate-900/40 p-5 transition hover:border-purple-500/40 hover:shadow-lg hover:shadow-purple-500/10"
     @click="goToDetail"
   >
     <!-- Image -->
@@ -8,7 +8,7 @@
       <img
         :src="project.image_url"
         :alt="project.title"
-        class="w-full h-full object-cover group-hover:scale-110 transition-smooth"
+        class="mb-4 h-44 w-full rounded-xl object-cover"
       />
       <div
         class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-smooth"
@@ -18,21 +18,21 @@
     <!-- Content -->
     <div class="p-6">
       <h3
-        class="text-white font-bold text-xl mb-2 group-hover:text-purple-400 transition-smooth"
+        class="text-lg font-semibold tracking-tight mb-1"
       >
         {{ project.title }}
       </h3>
 
-      <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+      <p class="text-sm text-slate-400 mb-4 line-clamp-2">
         {{ project.description }}
       </p>
 
       <!-- Tech Stack -->
-      <div class="flex flex-wrap gap-2 mb-4">
+      <div class="flex flex-wrap gap-2">
         <span
           v-for="tech in project.technologies"
           :key="tech"
-          class="text-xs bg-slate-800 text-slate-300 px-2 py-1 rounded"
+          class="text-xs px-2 py-1 rounded-md bg-slate-800 text-slate-300"
         >
           {{ tech }}
         </span>

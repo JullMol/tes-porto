@@ -1,105 +1,73 @@
 <template>
-  <div class="bg-gradient-dark min-h-screen">
-    <!-- Header -->
-    <section class="py-20 border-b border-slate-800">
-      <div class="container-custom">
-        <h1 class="section-title text-5xl md:text-6xl mb-4">My Work</h1>
-        <p class="section-subtitle text-lg max-w-2xl">
-          A collection of projects showcasing my journey in software
-          development, from web applications to open source tools.
+  <section class="pt-32 pb-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <!-- Heading -->
+      <div class="mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          My Work
+        </h1>
+        <p class="text-xl text-slate-400 max-w-2xl">
+          A collection of projects showcasing my journey in software development,
+          from web applications to open source tools.
         </p>
       </div>
-    </section>
 
-    <!-- Filters -->
-    <section class="py-8 border-b border-slate-800">
-      <div class="container-custom">
-        <div class="flex flex-wrap gap-3">
-          <button
-            @click="selectedFilter = null"
-            :class="[
-              'badge text-sm px-4 py-2',
-              !selectedFilter
-                ? 'bg-purple-600 border-purple-500'
-                : 'hover:border-slate-600',
-            ]"
-          >
-            All Projects
-          </button>
-          <button
-            v-for="tech in uniqueTechs"
-            :key="tech"
-            @click="selectedFilter = tech"
-            :class="[
-              'badge text-sm px-4 py-2',
-              selectedFilter === tech
-                ? 'bg-purple-600 border-purple-500'
-                : 'hover:border-slate-600',
-            ]"
-          >
-            {{ tech }}
-          </button>
-        </div>
-      </div>
-    </section>
+      <!-- Filters (visual only for now) -->
+      <section class="pt-32 pb-20 px-4">
+          <div class="max-w-7xl mx-auto">
 
-    <!-- Projects Grid -->
-    <section class="py-20">
-      <div class="container-custom">
-        <div v-if="loading" class="flex justify-center">
-          <LoadingSpinner />
-        </div>
-        <div v-else-if="error" class="text-center py-20">
-          <p class="text-red-400 mb-4">{{ error }}</p>
-          <button @click="fetchProjects" class="btn btn-accent">Retry</button>
-        </div>
-        <div
-          v-else-if="filteredProjects.length === 0"
-          class="text-center py-20"
-        >
-          <p class="text-slate-400 text-lg">No projects found</p>
-        </div>
-        <ProjectList v-else :projects="filteredProjects" />
-      </div>
-    </section>
-  </div>
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mb-12">
+              <button
+                v-for="filter in filters"
+                :key="filter"
+                @click="activeFilter = filter"
+                class="px-6 py-2 rounded-full text-sm font-medium transition-all"
+                :class="
+                  activeFilter === filter
+                    ? 'bg-white text-black'
+                    : 'bg-white/5 text-slate-400 hover:bg-white/10'
+                "
+              >
+                {{ filter }}
+              </button>
+            </div>
+
+            <ProjectList :projects="filteredProjects" />
+          </div>
+        </section>
+
+      <!-- Projects -->
+      <ProjectListWork :projects="projects" />
+    </div>
+  </section>
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
-import { useProjectStore } from "../store/modules/projects";
-import ProjectList from "../components/projects/ProjectList.vue";
-import LoadingSpinner from "../components/common/LoadingSpinner.vue";
+import { ref, computed } from "vue";
+import ProjectList from "@/components/projects/ProjectListWork.vue";
 
-const projectsStore = useProjectStore();
-const selectedFilter = ref(null);
+const projects = ref([
+  /* data project kamu */
+]);
 
-const projects = computed(() => projectsStore.projects);
-const loading = computed(() => projectsStore.loading);
-const error = computed(() => projectsStore.error);
+const filters = [
+  "All",
+  "React",
+  "Vue.js",
+  "TypeScript",
+  "Tailwind CSS",
+  "Firebase",
+  "Pinia",
+];
 
-const uniqueTechs = computed(() => {
-  const techs = new Set();
-  projects.value.forEach((project) => {
-    if (project.technologies && Array.isArray(project.technologies)) {
-      project.technologies.forEach((tech) => techs.add(tech));
-    }
-  });
-  return Array.from(techs).sort();
-});
+const activeFilter = ref("All");
 
 const filteredProjects = computed(() => {
-  if (!selectedFilter.value) return projects.value;
-  return projects.value.filter((project) =>
-    project.technologies?.includes(selectedFilter.value)
+  if (activeFilter.value === "All") return projects.value;
+
+  return projects.value.filter((p) =>
+    p.technologies?.includes(activeFilter.value)
   );
-});
-
-const fetchProjects = async () => {
-  await projectsStore.fetchProjects();
-};
-
-onMounted(() => {
-  fetchProjects();
 });
 </script>
