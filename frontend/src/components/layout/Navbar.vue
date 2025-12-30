@@ -25,9 +25,9 @@
       <div class="hidden md:flex items-center gap-8">
         <NavLink to="/" label="Home" />
         <NavLink to="/projects" label="Work" />
-        <NavLink to="/contact" label="Contact" />
+        <NavLink to="/about" label="Contact" />
 
-        <router-link to="/contact">
+        <router-link to="/about">
           <button
             class="
               ml-4 px-6 h-8 rounded-full
@@ -58,9 +58,9 @@
       <div class="px-6 py-6 flex flex-col gap-4">
         <router-link to="/" @click="closeMobileMenu">Home</router-link>
         <router-link to="/projects" @click="closeMobileMenu">Work</router-link>
-        <router-link to="/contact" @click="closeMobileMenu">Contact</router-link>
+        <router-link to="/about" @click="closeMobileMenu">Contact</router-link>
         <router-link
-          to="/contact"
+          to="/about"
           class="mt-4 inline-flex justify-center rounded-full bg-purple-600 py-2 text-sm font-semibold"
           @click="closeMobileMenu"
         >

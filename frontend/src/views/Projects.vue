@@ -1,73 +1,55 @@
 <template>
   <section class="pt-32 pb-20 px-4">
     <div class="max-w-7xl mx-auto">
-      <!-- Heading -->
-      <div class="mb-16">
+      <!-- Header -->
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 40 }"
+        :enter="{ opacity: 1, y: 0 }"
+        class="mb-16"
+      >
         <h1 class="text-5xl md:text-7xl font-bold mb-6">
           My Work
         </h1>
-        <p class="text-xl text-slate-400 max-w-2xl">
-          A collection of projects showcasing my journey in software development,
-          from web applications to open source tools.
+        <p class="text-xl text-muted-foreground max-w-2xl">
+          A collection of projects showcasing my journey in software development.
         </p>
       </div>
 
-      <!-- Filters (visual only for now) -->
-      <section class="pt-32 pb-20 px-4">
-          <div class="max-w-7xl mx-auto">
-
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap gap-2 mb-12">
-              <button
-                v-for="filter in filters"
-                :key="filter"
-                @click="activeFilter = filter"
-                class="px-6 py-2 rounded-full text-sm font-medium transition-all"
-                :class="
-                  activeFilter === filter
-                    ? 'bg-white text-black'
-                    : 'bg-white/5 text-slate-400 hover:bg-white/10'
-                "
-              >
-                {{ filter }}
-              </button>
-            </div>
-
-            <ProjectList :projects="filteredProjects" />
+      <!-- Skeleton -->
+      <div
+        v-if="isLoading"
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        <div
+          v-for="i in 6"
+          :key="i"
+          class="rounded-3xl overflow-hidden bg-white/5 animate-pulse"
+        >
+          <div class="aspect-video bg-white/10"></div>
+          <div class="p-6 space-y-3">
+            <div class="h-4 w-1/2 bg-white/10 rounded"></div>
+            <div class="h-3 w-full bg-white/10 rounded"></div>
+            <div class="h-3 w-4/5 bg-white/10 rounded"></div>
           </div>
-        </section>
+        </div>
+      </div>
 
-      <!-- Projects -->
-      <ProjectListWork :projects="projects" />
+      <!-- Actual content -->
+      <ProjectListWork v-else />
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import ProjectList from "@/components/projects/ProjectListWork.vue";
+import { ref, onMounted } from 'vue'
+import ProjectListWork from '@/components/projects/ProjectListWork.vue'
 
-const projects = ref([
-  /* data project kamu */
-]);
+const isLoading = ref(true)
 
-const filters = [
-  "All",
-  "React",
-  "Vue.js",
-  "TypeScript",
-  "Tailwind CSS",
-  "Firebase",
-  "Pinia",
-];
-
-const activeFilter = ref("All");
-
-const filteredProjects = computed(() => {
-  if (activeFilter.value === "All") return projects.value;
-
-  return projects.value.filter((p) =>
-    p.technologies?.includes(activeFilter.value)
-  );
-});
+onMounted(() => {
+  setTimeout(() => {
+    isLoading.value = false
+  }, 1200)
+})
 </script>

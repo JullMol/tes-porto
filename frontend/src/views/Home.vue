@@ -1,72 +1,64 @@
 <template>
-  <div class="bg-[#0b0b0f] text-slate-200">
+  <div class="bg-[#0b0b0f] text-slate-200 overflow-hidden">
+    <!-- HERO -->
     <Hero />
 
-    <section
-      class="
-      relative py-32 overflow-hidden
-      border-y border-white/10
-      bg-[#0b0b0f]
-      "
-    >
+    <!-- ===================== -->
+    <!-- EXPERTISE & SKILLS -->
+    <!-- ===================== -->
+    <section class="relative py-32 overflow-hidden">
       <div
-        class="pointer-events-none absolute inset-0
-              bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,0.18),transparent_55%),
-              radial-gradient(circle_at_80%_70%,rgba(99,102,241,0.15),transparent_60%)]"
+        class="absolute inset-0 bg-gradient-to-b from-purple-500/10 via-transparent to-[#0b0b0f]"
       />
-      <div class="max-w-7xl mx-auto px-6">
-        <!-- Header -->
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4">
         <div class="text-center mb-20">
-          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          <h2 class="text-4xl md:text-5xl font-black mb-4">
             Expertise & Skills
           </h2>
-          <p class="text-xl text-slate-400 max-w-2xl mx-auto">
-            Specialized in creating scalable, beautiful digital products
+          <p class="text-lg text-white/60 max-w-2xl mx-auto">
+            Specialized in crafting scalable, elegant digital products
           </p>
         </div>
 
-        <!-- Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div
-            v-for="skill in skills"
-            :key="skill.title"
-            class="
-              p-8 rounded-2xl
-              bg-gradient-to-br from-white/10 to-white/5
-              border border-white/10
-              backdrop-blur-md
-              shadow-[0_30px_80px_rgba(0,0,0,0.45)]
-              hover:from-white/15 hover:to-white/10
-              transition
-            "
+            v-for="item in expertise"
+            :key="item.title"
+            class="group p-8 rounded-2xl
+                   bg-gradient-to-br from-white/10 to-white/5
+                   border border-white/15
+                   hover:-translate-y-2
+                   hover:border-purple-400/40
+                   hover:shadow-xl hover:shadow-purple-500/20
+                   transition-all duration-300"
           >
             <div
-              class="w-14 h-14 rounded-xl
-                    bg-gradient-to-br from-primary/30 to-primary/10
-                    flex items-center justify-center mb-5 text-primary"
+              class="w-14 h-14 mb-6 rounded-xl
+                     bg-gradient-to-br from-purple-500/30 to-purple-500/10
+                     flex items-center justify-center text-purple-400
+                     group-hover:scale-110 transition"
             >
-              <component :is="skill.icon" class="w-7 h-7" />
+              <component :is="item.icon" class="w-7 h-7" />
             </div>
 
             <h3 class="text-lg font-bold mb-2 text-white">
-              {{ skill.title }}
+              {{ item.title }}
             </h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              {{ skill.desc }}
+            <p class="text-sm text-white/60 leading-relaxed">
+              {{ item.desc }}
             </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ===================== -->
     <!-- TECHNICAL ARSENAL -->
-    <section
-      class="relative py-32 px-6 overflow-hidden bg-[#0b0b0f]"
-    >
-      <div class="max-w-7xl mx-auto px-6">
-        <h2
-          class="text-4xl md:text-5xl font-display font-bold mb-16 text-center"
-        >
+    <!-- ===================== -->
+    <section class="py-32 bg-white/5 border-y border-white/10">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">
           Technical Arsenal
         </h2>
 
@@ -74,28 +66,21 @@
           class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto"
         >
           <div
-            v-for="skill in technicalSkills"
+            v-for="skill in skills"
             :key="skill.name"
-            class="
-              flex items-center gap-3 px-6 py-3 rounded-2xl
-              bg-gradient-to-r from-white/10 to-white/5
-              border border-white/20
-              hover:border-primary/50
-              hover:shadow-lg hover:shadow-primary/20
-              transition-all cursor-default
-            "
+            class="flex items-center gap-3 px-6 py-3 rounded-2xl
+                   bg-gradient-to-r from-white/10 to-white/5
+                   border border-white/20
+                   hover:border-purple-400/50
+                   hover:shadow-lg hover:shadow-purple-500/20
+                   transition"
           >
-            <div
-              class="w-2 h-2 rounded-full bg-primary
-                    shadow-[0_0_14px_rgba(124,58,237,0.45)]"
-            />
-
+            <span class="w-2 h-2 rounded-full bg-purple-400" />
             <span class="font-semibold text-white text-sm">
               {{ skill.name }}
             </span>
-
             <span
-              class="ml-auto text-xs font-mono text-primary font-bold"
+              class="ml-auto text-xs font-mono font-bold text-purple-400"
             >
               {{ skill.level }}%
             </span>
@@ -104,15 +89,16 @@
       </div>
     </section>
 
-    <section class="
-      relative py-32 px-6 overflow-hidden
-      bg-[#0b0b0f]
-    ">
+    <!-- ===================== -->
+    <!-- SELECTED WORK -->
+    <!-- ===================== -->
+    <section class="relative py-32 px-6 bg-[#0b0b0f]">
       <div
         class="pointer-events-none absolute inset-0
-              bg-[linear-gradient(to_bottom,rgba(99,102,241,0.08),transparent_35%)]"
+               bg-[linear-gradient(to_bottom,rgba(99,102,241,0.08),transparent_35%)]"
       />
-      <div class="max-w-7xl mx-auto">
+
+      <div class="relative max-w-7xl mx-auto">
         <div class="flex items-end justify-between mb-16">
           <div>
             <h2 class="text-4xl md:text-5xl font-bold mb-4">
@@ -123,56 +109,49 @@
             </p>
           </div>
 
-          <router-link
+          <RouterLink
             to="/projects"
             class="hidden md:flex items-center gap-2
-                  text-sm font-medium px-5 py-2.5
-                  border border-white/20 rounded-full
-                  hover:bg-white/5 transition"
+                   text-sm font-medium px-5 py-2.5
+                   border border-white/20 rounded-full
+                   hover:bg-white/5 transition"
           >
-            View All Projects
-            <span class="transition-transform group-hover:translate-x-1">→</span>
-          </router-link>
+            View All Projects →
+          </RouterLink>
         </div>
 
-        <!-- JANGAN TAMBAH GRID DI SINI -->
+        <!-- Project grid handled INSIDE ProjectList -->
         <ProjectList
           v-if="featuredProjects.length"
           :projects="featuredProjects"
         />
       </div>
     </section>
-  
-      <!-- CTA -->
+
+    <!-- ===================== -->
+    <!-- CTA -->
+    <!-- ===================== -->
     <section class="relative py-32 px-6 overflow-hidden">
       <div class="absolute inset-0 bg-primary/5"></div>
 
-      <div
-        class="relative z-10 max-w-4xl mx-auto text-center"
-      >
-        <h2
-          class="text-5xl md:text-7xl font-display font-bold mb-8"
-        >
+      <div class="relative z-10 max-w-4xl mx-auto text-center">
+        <h2 class="text-5xl md:text-7xl font-display font-bold mb-8">
           Have a project in mind?
         </h2>
 
-        <p
-          class="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto"
-        >
+        <p class="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
           I'm currently available for freelance work and open to full-time
           opportunities. Let's build something amazing together.
         </p>
 
-        <RouterLink to="/contact">
+        <RouterLink to="/about">
           <button
-            class="
-              h-16 px-10 rounded-full text-lg font-bold
-              bg-primary text-primary-foreground
-              border border-primary-border
-              shadow-lg shadow-primary/25
-              hover:bg-primary/90
-              transition
-            "
+            class="h-16 px-10 rounded-full text-lg font-bold
+                   bg-primary text-primary-foreground
+                   border border-primary-border
+                   shadow-lg shadow-primary/25
+                   hover:bg-primary/90
+                   transition"
           >
             Let's Talk
           </button>
@@ -183,14 +162,22 @@
 </template>
 
 <script setup>
+import { computed, onMounted } from "vue";
 import {
   Code,
   Database,
   PanelsTopLeft,
-  Terminal
-} from "lucide-vue-next"
+  Terminal,
+} from "lucide-vue-next";
 
-const skills = [
+import Hero from "@/components/layout/Hero.vue";
+import ProjectList from "@/components/projects/ProjectListWork.vue";
+
+import { useProjectStore } from "@/store/modules/projects";
+import { useBlogStore } from "@/store/modules/blog";
+
+/* ===== Expertise ===== */
+const expertise = [
   {
     title: "Frontend Development",
     desc: "React, Next.js, Vue, Tailwind CSS",
@@ -211,12 +198,14 @@ const skills = [
     desc: "Docker, AWS, CI/CD, Git Workflow",
     icon: Terminal,
   },
-]
+];
 
-const technicalSkills = [
+/* ===== Technical Arsenal ===== */
+const skills = [
   { name: "React", level: 90 },
   { name: "TypeScript", level: 85 },
   { name: "Tailwind CSS", level: 95 },
+  { name: "Vue.js", level: 85 },
   { name: "Node.js", level: 80 },
   { name: "PostgreSQL", level: 75 },
   { name: "Python", level: 70 },
@@ -225,21 +214,12 @@ const technicalSkills = [
   { name: "Figma", level: 70 },
 ];
 
-import { ref, computed, onMounted } from "vue";
-import { useProjectStore } from "@/store/modules/projects";
-import { useBlogStore } from "@/store/modules/blog";
-import Hero from "@/components/layout/Hero.vue";
-import ProjectList from "@/components/projects/ProjectListWork.vue";
-
+/* ===== Stores ===== */
 const projectStore = useProjectStore();
 const blogStore = useBlogStore();
 
 const featuredProjects = computed(() =>
   (projectStore.projects || []).slice(0, 3)
-);
-
-const latestPosts = computed(() =>
-  (blogStore.posts || []).slice(0, 3)
 );
 
 onMounted(async () => {

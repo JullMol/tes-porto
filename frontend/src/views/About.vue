@@ -1,204 +1,257 @@
 <template>
-  <div class="bg-gradient-dark min-h-screen">
-    <!-- Header -->
-    <section class="py-20 border-b border-slate-800">
-      <div class="container-custom">
-        <h1 class="section-title text-5xl md:text-6xl mb-4">
-          Let's work together.
-        </h1>
-        <p class="section-subtitle text-lg max-w-2xl">
-          I'm always interested in hearing about new projects and opportunities.
-          Whether you have a question or just want to say hi, feel free to get
-          in touch!
-        </p>
-      </div>
-    </section>
+  <section class="relative pt-32 pb-20 px-4 overflow-hidden">
+    <!-- FLOATING GRADIENT BACKGROUND -->
+    <div class="absolute inset-0 -z-10">
+      <div class="blob blob-purple"></div>
+      <div class="blob blob-pink"></div>
+    </div>
 
-    <!-- Contact Content -->
-    <section class="py-20">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <!-- Contact Info -->
-          <div>
-            <h2 class="text-3xl font-bold text-white mb-8">Get In Touch</h2>
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
 
-            <div class="space-y-6">
-              <!-- Email -->
-              <div class="flex items-start gap-4">
-                <div
-                  class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center flex-shrink-0 text-purple-400 text-lg"
-                >
-                  ✉️
-                </div>
-                <div>
-                  <h3 class="text-white font-semibold mb-1">Email</h3>
-                  <a
-                    href="mailto:hello@example.com"
-                    class="text-slate-400 hover:text-purple-400 transition-smooth"
-                  >
-                    hello@example.com
-                  </a>
-                </div>
+        <!-- LEFT -->
+        <div
+          v-motion
+          :initial="motion({ opacity: 0, y: 40 })"
+          :enter="motion({ opacity: 1, y: 0 })"
+          :transition="{ duration: 0.7 }"
+        >
+          <h1 class="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight">
+            Let's work <br />
+            <span
+              class="bg-gradient-to-r from-purple-400 to-pink-500
+                     bg-clip-text text-transparent animate-gradient"
+            >
+              together.
+            </span>
+          </h1>
+
+          <p class="text-xl text-slate-400 mb-12 leading-relaxed max-w-xl">
+            I'm always interested in hearing about new projects and opportunities.
+            Whether you have a question or just want to say hi, I'll try my best
+            to get back to you.
+          </p>
+
+          <div class="space-y-8">
+            <!-- EMAIL -->
+            <div
+              v-motion
+              :initial="motion({ opacity: 0, x: -30 })"
+              :enter="motion({ opacity: 1, x: 0 })"
+              :transition="{ delay: 0.2 }"
+              class="flex items-center gap-6"
+            >
+              <div class="info-icon">
+                <Mail class="w-5 h-5 text-purple-400" />
               </div>
-
-              <!-- Location -->
-              <div class="flex items-start gap-4">
-                <div
-                  class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center flex-shrink-0 text-purple-400 text-lg"
-                >
-                  📍
-                </div>
-                <div>
-                  <h3 class="text-white font-semibold mb-1">Location</h3>
-                  <p class="text-slate-400">San Francisco, CA</p>
-                </div>
-              </div>
-
-              <!-- Availability -->
-              <div class="flex items-start gap-4">
-                <div
-                  class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center flex-shrink-0 text-emerald-400 text-lg"
-                >
-                  🟢
-                </div>
-                <div>
-                  <h3 class="text-white font-semibold mb-1">Availability</h3>
-                  <p class="text-slate-400">
-                    Open for freelance and full-time opportunities
-                  </p>
-                </div>
+              <div>
+                <h3 class="font-bold text-lg">Email</h3>
+                <p class="text-slate-400">hello@example.com</p>
               </div>
             </div>
 
-            <!-- Social Links -->
-            <div class="mt-12">
-              <h3 class="text-white font-semibold mb-4">Follow Me</h3>
-              <div class="flex gap-4">
-                <a
-                  href="#"
-                  class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-slate-400 hover:bg-purple-600 hover:text-white transition-smooth text-lg"
-                >
-                  f
-                </a>
-                <a
-                  href="#"
-                  class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-slate-400 hover:bg-purple-600 hover:text-white transition-smooth text-lg"
-                >
-                  in
-                </a>
-                <a
-                  href="#"
-                  class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-slate-400 hover:bg-purple-600 hover:text-white transition-smooth text-lg"
-                >
-                  ★
-                </a>
+            <!-- LOCATION -->
+            <div
+              v-motion
+              :initial="motion({ opacity: 0, x: -30 })"
+              :enter="motion({ opacity: 1, x: 0 })"
+              :transition="{ delay: 0.35 }"
+              class="flex items-center gap-6"
+            >
+              <div class="info-icon">
+                <MapPin class="w-5 h-5 text-purple-400" />
               </div>
-            </div>
-          </div>
-
-          <!-- Contact Form -->
-          <div>
-            <div class="card-glass p-8">
-              <form @submit.prevent="submitForm" class="space-y-6">
-                <div>
-                  <label class="block text-white font-semibold mb-2"
-                    >Name</label
-                  >
-                  <input
-                    v-model="form.name"
-                    type="text"
-                    placeholder="John Doe"
-                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-smooth"
-                  />
-                </div>
-
-                <div>
-                  <label class="block text-white font-semibold mb-2"
-                    >Email</label
-                  >
-                  <input
-                    v-model="form.email"
-                    type="email"
-                    placeholder="john@example.com"
-                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-smooth"
-                  />
-                </div>
-
-                <div>
-                  <label class="block text-white font-semibold mb-2"
-                    >Message</label
-                  >
-                  <textarea
-                    v-model="form.message"
-                    placeholder="Tell me about your project..."
-                    rows="5"
-                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-smooth resize-none"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  class="w-full btn btn-accent py-3 flex items-center justify-center gap-2"
-                >
-                  <span>Send Message</span>
-                  <span>🚀</span>
-                </button>
-              </form>
+              <div>
+                <h3 class="font-bold text-lg">Location</h3>
+                <p class="text-slate-400">San Francisco, CA</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section class="py-20 border-t border-slate-800">
-      <div class="container-custom">
-        <h2 class="section-title text-4xl md:text-5xl mb-12">
-          Technical Arsenal
-        </h2>
+        <!-- RIGHT / FORM -->
+        <div
+          v-motion
+          :initial="motion({ opacity: 0, scale: 0.95 })"
+          :enter="motion({ opacity: 1, scale: 1 })"
+          :transition="{ delay: 0.2, duration: 0.6 }"
+          class="
+            bg-gradient-to-br from-white/10 to-white/5
+            backdrop-blur-sm border border-white/20
+            p-8 md:p-10 rounded-3xl
+            hover:border-purple-500/40 transition-colors
+          "
+        >
+          <form class="space-y-6" @submit.prevent="handleSubmit">
+            <div
+              v-for="(field, i) in fields"
+              :key="field.label"
+              v-motion
+              :initial="motion({ opacity: 0, y: 30 })"
+              :enter="motion({ opacity: 1, y: 0 })"
+              :transition="{ delay: i * 0.12 }"
+              class="space-y-2"
+            >
+              <label class="text-sm font-medium ml-1">{{ field.label }}</label>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div
-            v-for="skill in skills"
-            :key="skill"
-            class="card-glass p-4 text-center hover:border-purple-500/50 transition-smooth"
-          >
-            <p class="text-slate-300 font-semibold">{{ skill }}</p>
-          </div>
+              <component
+                :is="field.type === 'textarea' ? 'textarea' : 'input'"
+                :type="field.type !== 'textarea' ? field.type : undefined"
+                :placeholder="field.placeholder"
+                class="input"
+                :class="field.type === 'textarea' && 'min-h-[160px] resize-none py-4'"
+              />
+            </div>
+
+            <!-- SUBMIT -->
+            <button
+              class="submit-btn magnetic"
+              :disabled="isLoading"
+              @mousemove="!isMobile && magneticMove($event)"
+              @mouseleave="!isMobile && magneticLeave($event)"
+            >
+              <span v-if="!isLoading && !isSuccess">Send Message</span>
+              <span v-if="isLoading">Sending...</span>
+              <span v-if="isSuccess">Sent successfully ✓</span>
+              <Send v-if="!isLoading && !isSuccess" class="w-5 h-5 ml-2" />
+            </button>
+          </form>
         </div>
+
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { Mail, MapPin, Send } from 'lucide-vue-next'
+import { ref } from 'vue'
 
-const form = ref({
-  name: "",
-  email: "",
-  message: "",
-});
+const isMobile = window.innerWidth < 768
+const motion = (v) => (isMobile ? {} : v)
 
-const skills = [
-  "Vue.js",
-  "React",
-  "Node.js",
-  "Go",
-  "PostgreSQL",
-  "MongoDB",
-  "Docker",
-  "Git",
-  "TypeScript",
-  "JavaScript",
-  "Tailwind CSS",
-  "Figma",
-];
+const isLoading = ref(false)
+const isSuccess = ref(false)
 
-const submitForm = async () => {
-  console.log("Form submitted:", form.value);
-  // Add your form submission logic here
-  alert("Message sent! I'll get back to you soon.");
-  form.value = { name: "", email: "", message: "" };
-};
+const fields = [
+  { label: 'Name', type: 'text', placeholder: 'John Doe' },
+  { label: 'Email', type: 'email', placeholder: 'john@example.com' },
+  { label: 'Message', type: 'textarea', placeholder: 'Tell me about your project...' }
+]
+
+const handleSubmit = async () => {
+  if (isLoading.value) return
+  isLoading.value = true
+  isSuccess.value = false
+
+  await new Promise(r => setTimeout(r, 1400))
+
+  isLoading.value = false
+  isSuccess.value = true
+
+  setTimeout(() => {
+    isSuccess.value = false
+  }, 3000)
+}
+
+const magneticMove = (e) => {
+  const el = e.currentTarget
+  const rect = el.getBoundingClientRect()
+  const x = e.clientX - rect.left - rect.width / 2
+  const y = e.clientY - rect.top - rect.height / 2
+  el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`
+}
+
+const magneticLeave = (e) => {
+  e.currentTarget.style.transform = 'translate(0,0)'
+}
 </script>
+
+<style scoped>
+/* FLOATING BACKGROUND */
+.blob {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.35;
+  animation: float 18s ease-in-out infinite;
+}
+
+.blob-purple {
+  background: radial-gradient(circle, #a855f7, transparent 70%);
+  top: -120px;
+  left: -120px;
+}
+
+.blob-pink {
+  background: radial-gradient(circle, #ec4899, transparent 70%);
+  bottom: -160px;
+  right: -120px;
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+}
+
+/* INPUT */
+.input {
+  width: 100%;
+  height: 56px;
+  border-radius: 0.75rem;
+  padding: 0 1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 1.05rem;
+  outline: none;
+  transition: all 0.25s;
+}
+
+.input:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 2px rgba(168,85,247,0.3);
+}
+
+/* ICON */
+.info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(168,85,247,0.25), rgba(168,85,247,0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(168,85,247,0.3);
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  height: 56px;
+  border-radius: 0.75rem;
+  background: #9333ea;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, transform 0.15s;
+}
+
+.submit-btn:hover {
+  background: #a855f7;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.magnetic {
+  transition: transform 0.15s ease-out;
+}
+</style>

@@ -1,123 +1,132 @@
 <template>
   <section
-    class="relative min-h-[92vh] flex items-center
-           pt-20 pb-16 md:pt-28 md:pb-24
-           px-4 overflow-hidden"
+    class="relative min-h-screen flex items-center pt-28 pb-24 px-4
+           overflow-hidden bg-[#0b0b0f]"
+    @mousemove="onMouseMove"
   >
-    <!-- ================= BACKGROUND ================= -->
+    <!-- BACKGROUND BLOBS (PARALLAX) -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div
+        class="absolute -top-[20%] -right-[10%] w-[620px] h-[620px]
+               bg-purple-500/30 rounded-full blur-[140px]"
+        :style="blobStyle(0.02)"
+      />
+      <div
+        class="absolute top-[45%] -left-[15%] w-[520px] h-[520px]
+               bg-fuchsia-500/20 rounded-full blur-[120px]"
+        :style="blobStyle(0.03)"
+      />
+      <div
+        class="absolute bottom-[-10%] right-[5%] w-[420px] h-[420px]
+               bg-purple-400/10 rounded-full blur-[120px]"
+        :style="blobStyle(0.015)"
+      />
+    </div>
 
-    <!-- Grid / Noise Overlay -->
+    <!-- SUBTLE GRID -->
     <div
-      class="pointer-events-none absolute inset-0 z-0"
+      class="absolute inset-0 pointer-events-none opacity-[0.25]"
       :style="gridStyle"
     />
 
-    <!-- Blob Lights -->
-    <div
-      class="absolute -top-[20%] -right-[15%]
-             w-[700px] h-[700px]
-             bg-primary/30 rounded-full blur-[140px]"
-    />
-    <div
-      class="absolute top-[35%] -left-[15%]
-             w-[550px] h-[550px]
-             bg-blue-500/20 rounded-full blur-[120px]"
-    />
-    <div
-      class="absolute bottom-[-15%] right-[10%]
-             w-[450px] h-[450px]
-             bg-purple-500/15 rounded-full blur-[110px]"
-    />
-
-    <!-- ================= CONTENT ================= -->
-
-    <div class="max-w-7xl mx-auto relative z-10 w-full">
+    <!-- CONTENT -->
+    <div class="relative z-10 max-w-7xl mx-auto w-full">
       <div class="max-w-4xl">
-        <!-- Badge -->
+        <!-- Availability -->
         <div
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full
+          class="inline-flex items-center gap-2 px-5 py-2 rounded-full
                  bg-gradient-to-r from-white/10 to-white/5
-                 border border-white/20 mb-6"
+                 border border-white/20 mb-10"
         >
-          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span class="text-sm font-mono text-slate-200 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400" />
+          <span class="text-sm font-medium text-white/90">
             Available for exciting projects
           </span>
         </div>
 
-        <!-- Heading -->
+        <!-- HEADLINE -->
         <h1
-          class="text-7xl md:text-8xl lg:text-9xl
-                 font-bold leading-[1.05]
-                 tracking-tight mb-6"
+          class="text-6xl md:text-7xl lg:text-8xl font-black leading-[1]
+                 tracking-tight mb-10"
         >
           Building
-          <span class="gradient-text-animated"> digital </span>
+          <span
+            class="bg-gradient-to-r from-purple-400 to-fuchsia-400
+                   bg-clip-text text-transparent"
+          >
+            digital
+          </span>
           <br />
-          <span class="text-gradient-primary">experiences</span>
+          <span
+            class="bg-gradient-to-r from-purple-300 to-purple-500
+                   bg-clip-text text-transparent"
+          >
+            experiences
+          </span>
           that matter.
         </h1>
 
-        <!-- Description -->
+        <!-- SUBTITLE -->
         <p
-          class="text-lg md:text-xl
-                 text-slate-400 max-w-2xl
-                 leading-relaxed mb-10 font-light"
+          class="text-xl md:text-2xl text-white/70 max-w-2xl
+                 leading-relaxed mb-14"
         >
-          Full Stack Developer crafting beautiful, high-performance web
-          applications with cutting-edge technologies. Let's turn your ideas
-          into reality.
+          Full Stack Developer crafting high-performance web applications
+          with modern technologies.
         </p>
 
-        <!-- Buttons -->
+        <!-- CTA -->
         <div class="flex flex-col sm:flex-row gap-4">
-          <button
-            @click="scrollTo('work')"
-            class="h-14 px-10 rounded-full text-lg font-bold
-                   bg-white text-black hover:bg-white/90
-                   transition-all"
+          <RouterLink
+            to="/projects"
+            class="inline-flex items-center justify-center
+                   h-14 px-10 rounded-full
+                   bg-white text-black font-bold text-lg
+                   hover:bg-white/90 transition"
           >
             Explore My Work
-          </button>
+          </RouterLink>
 
-          <button
-            @click="scrollTo('contact')"
-            class="h-14 px-10 rounded-full text-lg font-bold
-                   border border-white/30 text-white
-                   hover:border-white/50 hover:bg-white/5
-                   transition-all"
+          <RouterLink
+            to="/about"
+            class="inline-flex items-center justify-center
+                   h-14 px-10 rounded-full
+                   border border-white/30 text-white font-bold text-lg
+                   hover:bg-white/10 transition"
           >
-            Let's Connect
-          </button>
+            Let’s Connect
+          </RouterLink>
         </div>
-      </div>
-    </div>
-
-    <!-- ================= SCROLL CUE ================= -->
-
-    <div
-      class="absolute bottom-12 left-1/2
-             -translate-x-1/2 flex justify-center"
-    >
-      <div
-        class="w-6 h-10 border-2 border-white/30
-               rounded-full flex justify-center"
-      >
-        <div
-          class="w-1 h-2 bg-white rounded-full
-                 mt-2 animate-scroll"
-        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted } from "vue"
-import { useProfileStore } from "@/store/modules/profile"
+import { ref } from "vue"
 
-const profileStore = useProfileStore()
+/* ===== Mouse Parallax ===== */
+const mouseX = ref(0)
+const mouseY = ref(0)
 
+const onMouseMove = (e) => {
+  const { innerWidth, innerHeight } = window
+  mouseX.value = (e.clientX / innerWidth - 0.5) * 2
+  mouseY.value = (e.clientY / innerHeight - 0.5) * 2
+}
+
+const blobStyle = (strength = 0.04) => ({
+  transform: `
+    translate(
+      ${mouseX.value * 80 * strength}px,
+      ${mouseY.value * 80 * strength}px
+    )
+      rotateX(${mouseY.value * 8}deg)
+      rotateY(${mouseX.value * 8}deg)
+  `,
+})
+
+/* ===== Subtle Grid ===== */
 const gridStyle = {
   backgroundImage: `
     linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
@@ -127,67 +136,4 @@ const gridStyle = {
   maskImage:
     "radial-gradient(circle at center, black 40%, transparent 75%)",
 }
-
-const scrollTo = (id) => {
-  const el = document.getElementById(id)
-  if (!el) return
-
-  el.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  })
-}
-
-onMounted(async () => {
-  try {
-    await profileStore.fetchProfile()
-  } catch {
-    /* fallback silent */
-  }
-})
 </script>
-
-<style scoped>
-/* ===== Gradient Text ===== */
-.gradient-text-animated {
-  background: linear-gradient(
-    90deg,
-    #ffffff,
-    #38bdf8,
-    #6366f1
-  );
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-x 8s ease infinite;
-}
-
-.text-gradient-primary {
-  background: linear-gradient(
-    90deg,
-    #818cf8,
-    #a855f7
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ===== Animations ===== */
-@keyframes gradient-x {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes scroll {
-  0% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(14px); opacity: 1; }
-  100% { transform: translateY(0); opacity: 0.6; }
-}
-
-.animate-scroll {
-  animation: scroll 1.5s ease-in-out infinite;
-}
-</style>
