@@ -1,16 +1,13 @@
 <template>
   <nav class="fixed top-0 left-0 right-0 z-50">
-    <!-- Backdrop -->
     <div
       class="absolute inset-0 border-b border-white/10 backdrop-blur-xl transition"
       :class="isScrolled ? 'bg-[#0b0b0f]/95' : 'bg-[#0b0b0f]/80'"
     />
 
-    <!-- Content -->
     <div
       class="relative max-w-7xl mx-auto px-6 flex items-center justify-between h-20"
     >
-      <!-- Logo -->
       <router-link
         to="/"
         class="font-bold text-2xl tracking-tight text-white hover:text-purple-400 transition-colors"
@@ -21,7 +18,6 @@
         >
       </router-link>
 
-      <!-- Desktop Nav -->
       <div class="hidden md:flex items-center gap-8">
         <NavLink to="/" label="Home" />
         <NavLink to="/projects" label="Work" />
@@ -41,7 +37,6 @@
         </router-link>
       </div>
 
-      <!-- Mobile Button -->
       <button
         @click="toggleMobileMenu"
         class="md:hidden w-9 h-9 flex items-center justify-center text-white"
@@ -50,7 +45,6 @@
       </button>
     </div>
 
-    <!-- Mobile Menu -->
     <div
       v-if="mobileMenuOpen"
       class="md:hidden absolute top-20 left-0 right-0 bg-[#0b0b0f]/95 backdrop-blur-xl border-b border-white/10"

@@ -19,7 +19,7 @@ const form = ref({
 });
 
 const submitForm = () => {
-  console.log("Blog form submitted:", form.value);
+    // Submit logic
 };
 </script>
 

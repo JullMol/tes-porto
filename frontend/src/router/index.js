@@ -18,9 +18,9 @@ const routes = [
     component: Projects,
   },
   {
-    path: "/projects/:id",
+    path: "/projects/:slug",
     name: "ProjectDetail",
-    component: ProjectDetail,
+    component: () => import("@/pages/case-studies/CaseStudy.vue"),
   },
   {
     path: "/blog",

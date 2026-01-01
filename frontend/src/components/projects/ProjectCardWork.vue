@@ -34,6 +34,26 @@
         "
       >
         <div class="flex gap-4">
+          <!-- Case Study (INTERNAL) -->
+          <RouterLink
+            v-if="project.slug"
+            :to="`/projects/${project.slug}`"
+            @click.stop
+          >
+            <button
+              class="magnetic icon-btn bg-purple-500 text-white"
+              @mousemove="magneticMove"
+              @mouseleave="magneticLeave"
+            >
+              <!-- Book / Case Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M12 6v12m8-6H4" />
+              </svg>
+            </button>
+          </RouterLink>
+
           <!-- Demo -->
           <a :href="project.demo" target="_blank" @click.stop>
             <button
@@ -41,9 +61,7 @@
               @mousemove="magneticMove"
               @mouseleave="magneticLeave"
             >
-              <!-- Link Icon -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
+              <svg xmlns="http://www.w3.org/2000/svg"
                 class="w-5 h-5"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -66,9 +84,7 @@
               @mousemove="magneticMove"
               @mouseleave="magneticLeave"
             >
-              <!-- GitHub Icon -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
+              <svg xmlns="http://www.w3.org/2000/svg"
                 class="w-5 h-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"

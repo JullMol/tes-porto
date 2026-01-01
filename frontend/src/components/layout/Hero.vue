@@ -1,139 +1,197 @@
 <template>
   <section
-    class="relative min-h-screen flex items-center pt-28 pb-24 px-4
+    ref="hero"
+    class="relative min-h-screen flex items-center justify-center
            overflow-hidden bg-[#0b0b0f]"
     @mousemove="onMouseMove"
+    @mouseleave="resetTilt"
   >
-    <!-- BACKGROUND BLOBS (PARALLAX) -->
-    <div class="absolute inset-0 pointer-events-none">
-      <div
-        class="absolute -top-[20%] -right-[10%] w-[620px] h-[620px]
-               bg-purple-500/30 rounded-full blur-[140px]"
-        :style="blobStyle(0.02)"
-      />
-      <div
-        class="absolute top-[45%] -left-[15%] w-[520px] h-[520px]
-               bg-fuchsia-500/20 rounded-full blur-[120px]"
-        :style="blobStyle(0.03)"
-      />
-      <div
-        class="absolute bottom-[-10%] right-[5%] w-[420px] h-[420px]
-               bg-purple-400/10 rounded-full blur-[120px]"
-        :style="blobStyle(0.015)"
-      />
-    </div>
-
-    <!-- SUBTLE GRID -->
+    <!-- ===============================
+         GLOBAL FAKE LIGHT
+    ================================ -->
     <div
-      class="absolute inset-0 pointer-events-none opacity-[0.25]"
-      :style="gridStyle"
+      class="pointer-events-none absolute inset-0 transition-opacity duration-300"
+      :style="lightStyle"
     />
 
-    <!-- CONTENT -->
-    <div class="relative z-10 max-w-7xl mx-auto w-full">
-      <div class="max-w-4xl">
-        <!-- Availability -->
-        <div
-          class="inline-flex items-center gap-2 px-5 py-2 rounded-full
-                 bg-gradient-to-r from-white/10 to-white/5
-                 border border-white/20 mb-10"
-        >
-          <span class="w-2 h-2 rounded-full bg-emerald-400" />
-          <span class="text-sm font-medium text-white/90">
-            Available for exciting projects
-          </span>
-        </div>
-
-        <!-- HEADLINE -->
+    <!-- ===============================
+         HERO CARD (3D ROOT)
+    ================================ -->
+    <div
+      ref="card"
+      class="relative z-10 max-w-7xl w-full mx-6
+             grid lg:grid-cols-2 gap-20 items-center
+             rounded-[2.5rem]
+             bg-white/5 backdrop-blur-xl
+             border border-white/15
+             shadow-2xl shadow-purple-500/20
+             transform-gpu will-change-transform
+             px-12 py-20"
+      :style="cardStyle"
+    >
+      <!-- ===============================
+           LEFT CONTENT (DEPTH STACK)
+      ================================ -->
+      <div class="space-y-8">
         <h1
-          class="text-6xl md:text-7xl lg:text-8xl font-black leading-[1]
-                 tracking-tight mb-10"
+          class="text-5xl md:text-7xl font-black leading-tight"
+          :style="z(42)"
         >
-          Building
-          <span
-            class="bg-gradient-to-r from-purple-400 to-fuchsia-400
-                   bg-clip-text text-transparent"
-          >
-            digital
+          Data
+          <span class="bg-gradient-to-r from-purple-400 to-fuchsia-400
+                       bg-clip-text text-transparent">
+            Engineer
           </span>
           <br />
-          <span
-            class="bg-gradient-to-r from-purple-300 to-purple-500
-                   bg-clip-text text-transparent"
-          >
-            experiences
-          </span>
-          that matter.
+          Building Intelligent Systems
         </h1>
 
-        <!-- SUBTITLE -->
         <p
-          class="text-xl md:text-2xl text-white/70 max-w-2xl
-                 leading-relaxed mb-14"
+          class="text-lg text-white/65 max-w-xl"
+          :style="z(32)"
         >
-          Full Stack Developer crafting high-performance web applications
-          with modern technologies.
+        I specialize in data science, machine learning, and full-stack systems
+        turning complex data into scalable, meaningful digital solutions.
         </p>
 
-        <!-- CTA -->
-        <div class="flex flex-col sm:flex-row gap-4">
-          <RouterLink
-            to="/projects"
-            class="inline-flex items-center justify-center
-                   h-14 px-10 rounded-full
-                   bg-white text-black font-bold text-lg
-                   hover:bg-white/90 transition"
-          >
-            Explore My Work
+        <div class="flex gap-6 pt-4" :style="z(26)">
+          <RouterLink to="/projects">
+            <button
+              class="px-8 py-4 rounded-full border border-white/25
+                     hover:bg-white/10 transition"
+            >
+              Explore My Work
+            </button>
           </RouterLink>
 
-          <RouterLink
-            to="/about"
-            class="inline-flex items-center justify-center
-                   h-14 px-10 rounded-full
-                   border border-white/30 text-white font-bold text-lg
-                   hover:bg-white/10 transition"
+          <a
+            href="https://www.linkedin.com/in/dimas-rafi-izzulhaq-b94058378"
+            target="_blank"
           >
-            Let’s Connect
-          </RouterLink>
+            <button
+              class="px-8 py-4 rounded-full
+                     bg-purple-600 hover:bg-purple-700
+                     shadow-xl shadow-purple-500/30 transition"
+            >
+              Connect on LinkedIn
+            </button>
+          </a>
         </div>
+      </div>
+
+      <!-- ===============================
+           RIGHT — TRUE 3D LOTTIE
+      ================================ -->
+      <div
+        class="relative flex items-center justify-center"
+        :style="z(60)"
+      >
+        <!-- glass reflection -->
+        <div
+          class="absolute inset-0 rounded-3xl
+                 bg-gradient-to-tr from-white/10 to-transparent
+                 blur-xl opacity-40"
+        />
+
+        <dotlottie-wc
+          ref="lottie"
+          src="https://lottie.host/c8b0bbcf-1b1a-434b-96eb-7c4b070f906c/TB0x57QIWa.lottie"
+          autoplay
+          loop
+          style="width: 360px; height: 360px;"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, computed, onMounted } from "vue"
 
-/* ===== Mouse Parallax ===== */
+/* ===============================
+   REFS
+================================ */
+const hero = ref(null)
+const card = ref(null)
+const lottie = ref(null)
+
 const mouseX = ref(0)
 const mouseY = ref(0)
 
+/* ===============================
+   ENV CHECK
+================================ */
+const isMobile =
+  window.matchMedia("(max-width: 768px)").matches ||
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+/* ===============================
+   MOUSE TRACKING
+================================ */
 const onMouseMove = (e) => {
-  const { innerWidth, innerHeight } = window
-  mouseX.value = (e.clientX / innerWidth - 0.5) * 2
-  mouseY.value = (e.clientY / innerHeight - 0.5) * 2
+  if (isMobile || !hero.value) return
+
+  const rect = hero.value.getBoundingClientRect()
+  mouseX.value = (e.clientX - rect.left) / rect.width - 0.5
+  mouseY.value = (e.clientY - rect.top) / rect.height - 0.5
 }
 
-const blobStyle = (strength = 0.04) => ({
-  transform: `
-    translate(
-      ${mouseX.value * 80 * strength}px,
-      ${mouseY.value * 80 * strength}px
-    )
-      rotateX(${mouseY.value * 8}deg)
-      rotateY(${mouseX.value * 8}deg)
-  `,
+const resetTilt = () => {
+  mouseX.value = 0
+  mouseY.value = 0
+}
+
+/* ===============================
+   3D CARD TRANSFORM
+================================ */
+const cardStyle = computed(() => {
+  if (isMobile) return {}
+
+  const rx = mouseY.value * -10
+  const ry = mouseX.value * 12
+
+  return {
+    transform: `
+      perspective(1400px)
+      rotateX(${rx}deg)
+      rotateY(${ry}deg)
+    `,
+  }
 })
 
-/* ===== Subtle Grid ===== */
-const gridStyle = {
-  backgroundImage: `
-    linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px)
-  `,
-  backgroundSize: "64px 64px",
-  maskImage:
-    "radial-gradient(circle at center, black 40%, transparent 75%)",
+/* ===============================
+   FAKE DYNAMIC LIGHT
+================================ */
+const lightStyle = computed(() => {
+  if (isMobile) return { opacity: 0 }
+
+  return {
+    background: `
+      radial-gradient(
+        circle at ${50 + mouseX.value * 30}% ${50 + mouseY.value * 30}%,
+        rgba(168,85,247,0.22),
+        transparent 55%
+      )
+    `,
+  }
+})
+
+/* ===============================
+   DEPTH HELPER
+================================ */
+const z = (value) => {
+  if (isMobile) return {}
+  return {
+    transform: `translateZ(${value}px)`,
+  }
 }
+
+/* ===============================
+   FORCE LOTTIE PLAY (ANTI JPG)
+================================ */
+onMounted(() => {
+  setTimeout(() => {
+    lottie.value?.play?.()
+  }, 200)
+})
 </script>
