@@ -7,7 +7,6 @@
         :enter="{ opacity: 1, y: 0 }"
         class="mb-20 relative"
       >
-        <!-- Decorative subtle glow -->
         <div class="absolute -top-10 -left-10 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px] pointer-events-none" />
 
         <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">
@@ -70,7 +69,6 @@ const formattedProjects = computed(() => {
 })
 
 onMounted(async () => {
-  // Optional: Fetch fresh data if needed, but we have local fallback
   if (!projectStore.projects.length) {
     await projectStore.fetchProjects()
   }

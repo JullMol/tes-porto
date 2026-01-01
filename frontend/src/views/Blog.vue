@@ -10,7 +10,6 @@
 <script setup>
 import BlogPost from "../components/blog/BlogPost.vue";
 
-// Mock data
 const posts = [
   {
     id: 1,

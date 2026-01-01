@@ -17,8 +17,8 @@ func NewProjectRepository(db *sql.DB) *ProjectRepository {
 
 func (r *ProjectRepository) FindAll() ([]models.Project, error) {
     query := `SELECT id, title, description, technologies, github_url, 
-              live_url, image_url, created_at, updated_at FROM projects 
-              ORDER BY created_at DESC`
+            live_url, image_url, created_at, updated_at FROM projects 
+            ORDER BY created_at DESC`
     
     rows, err := r.db.Query(query)
     if err != nil {
@@ -43,8 +43,8 @@ func (r *ProjectRepository) FindAll() ([]models.Project, error) {
 
 func (r *ProjectRepository) FindByID(id int) (*models.Project, error) {
     query := `SELECT id, title, description, technologies, github_url, 
-              live_url, image_url, created_at, updated_at FROM projects 
-              WHERE id = $1`
+            live_url, image_url, created_at, updated_at FROM projects 
+            WHERE id = $1`
     
     var p models.Project
     err := r.db.QueryRow(query, id).Scan(&p.ID, &p.Title, &p.Description,
@@ -60,9 +60,9 @@ func (r *ProjectRepository) FindByID(id int) (*models.Project, error) {
 
 func (r *ProjectRepository) Create(project *models.Project) error {
     query := `INSERT INTO projects (title, description, technologies, 
-              github_url, live_url, image_url) 
-              VALUES ($1, $2, $3, $4, $5, $6) 
-              RETURNING id, created_at, updated_at`
+            github_url, live_url, image_url) 
+            VALUES ($1, $2, $3, $4, $5, $6) 
+            RETURNING id, created_at, updated_at`
     
     return r.db.QueryRow(query, project.Title, project.Description,
         pq.Array(project.Technologies), project.GithubURL, 
@@ -72,9 +72,9 @@ func (r *ProjectRepository) Create(project *models.Project) error {
 
 func (r *ProjectRepository) Update(project *models.Project) error {
     query := `UPDATE projects SET title = $1, description = $2, 
-              technologies = $3, github_url = $4, live_url = $5, 
-              image_url = $6, updated_at = NOW() 
-              WHERE id = $7 RETURNING updated_at`
+            technologies = $3, github_url = $4, live_url = $5, 
+            image_url = $6, updated_at = NOW() 
+            WHERE id = $7 RETURNING updated_at`
     
     return r.db.QueryRow(query, project.Title, project.Description,
         pq.Array(project.Technologies), project.GithubURL, 

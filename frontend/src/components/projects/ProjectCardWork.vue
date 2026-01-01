@@ -7,9 +7,7 @@
     :transition="{ delay, duration: 0.6, ease: 'easeOut' }"
     class="group relative rounded-3xl overflow-hidden"
   >
-    <!-- Image -->
     <div class="relative aspect-video w-full overflow-hidden">
-      <!-- Gradient -->
       <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10" />
 
       <img
@@ -22,7 +20,6 @@
         "
       />
 
-      <!-- Hover Overlay -->
       <div
         class="
           absolute inset-0 z-20
@@ -34,7 +31,6 @@
         "
       >
         <div class="flex gap-4">
-          <!-- Case Study (INTERNAL) -->
           <RouterLink
             v-if="project.slug"
             :to="`/projects/${project.slug}`"
@@ -45,7 +41,6 @@
               @mousemove="magneticMove"
               @mouseleave="magneticLeave"
             >
-              <!-- Book / Case Icon -->
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -54,7 +49,6 @@
             </button>
           </RouterLink>
 
-          <!-- Demo -->
           <a :href="project.demo" target="_blank" @click.stop>
             <button
               class="magnetic icon-btn bg-white text-black"
@@ -77,7 +71,6 @@
             </button>
           </a>
 
-          <!-- GitHub -->
           <a :href="project.github" target="_blank" @click.stop>
             <button
               class="magnetic icon-btn border border-white text-white"
@@ -101,7 +94,6 @@
       </div>
     </div>
 
-    <!-- Content -->
     <div class="p-6 md:p-8 bg-gradient-to-br from-secondary/40 to-secondary/20">
       <div class="flex flex-wrap gap-2 mb-4">
         <span

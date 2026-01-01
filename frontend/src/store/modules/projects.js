@@ -21,7 +21,6 @@ export const useProjectStore = defineStore("projects", {
       try {
         const response = await projectService.getAll();
 
-        // 🔒 fallback safety
         if (response?.data?.length) {
           this.projects = response.data;
         }

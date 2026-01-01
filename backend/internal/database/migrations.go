@@ -6,7 +6,6 @@ import (
 )
 
 func RunMigrations(db *sql.DB) error {
-    // Create projects table
     projectsTable := `
     CREATE TABLE IF NOT EXISTS projects (
         id SERIAL PRIMARY KEY,
@@ -20,7 +19,6 @@ func RunMigrations(db *sql.DB) error {
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );`
 
-    // Create blog_posts table
     blogTable := `
     CREATE TABLE IF NOT EXISTS blog_posts (
         id SERIAL PRIMARY KEY,
@@ -34,7 +32,6 @@ func RunMigrations(db *sql.DB) error {
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );`
 
-    // Create profile table
     profileTable := `
     CREATE TABLE IF NOT EXISTS profile (
         id SERIAL PRIMARY KEY,

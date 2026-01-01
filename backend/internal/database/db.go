@@ -17,7 +17,6 @@ func Connect(url string) (*sql.DB, error) {
         return nil, fmt.Errorf("failed to ping database: %w", err)
     }
     
-    // Run migrations
     if err := runMigrations(db); err != nil {
         return nil, fmt.Errorf("failed to run migrations: %w", err)
     }

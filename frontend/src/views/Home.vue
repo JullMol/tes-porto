@@ -1,25 +1,17 @@
 <template>
   <div class="relative bg-[#0b0b0f] text-slate-200 overflow-hidden">
-
-    <!-- ================= GLOBAL AMBIENT + NOISE ================= -->
     <div class="pointer-events-none fixed inset-0 -z-10">
-      <!-- ambient blobs -->
       <div class="absolute top-[10%] left-[8%] w-[520px] h-[520px]
                   bg-purple-500/12 rounded-full blur-[180px]" />
       <div class="absolute bottom-[18%] right-[10%] w-[420px] h-[420px]
                   bg-fuchsia-500/10 rounded-full blur-[160px]" />
-
-      <!-- noise texture -->
       <div class="absolute inset-0 opacity-[0.06]
                   bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
     </div>
 
-    <!-- HERO -->
     <Hero />
 
-    <!-- ================= EXPERTISE ================= -->
     <section class="relative py-32">
-      <!-- light from hero -->
       <div
         class="absolute inset-0
         bg-[radial-gradient(circle_at_70%_15%,rgba(168,85,247,0.18),transparent_45%)]"
@@ -45,10 +37,8 @@
             @mousemove="onTilt"
             @mouseleave="resetTilt"
           >
-            <!-- GLASS REFLECTION -->
             <div class="tilt-glass" />
 
-            <!-- CONTENT -->
             <div class="relative z-10">
               <div
                 class="w-14 h-14 mb-6 rounded-xl
@@ -73,14 +63,12 @@
       </div>
     </section>
 
-    <!-- ================= TECHNICAL ARSENAL ================= -->
     <section class="relative py-32">
       <div class="relative max-w-6xl mx-auto px-4">
         <h2 class="text-4xl md:text-5xl font-black text-center mb-16">
           Tools I Use to Build Production-Ready Systems
         </h2>
 
-        <!-- CHIP GRID -->
         <div class="flex flex-wrap justify-center gap-4">
           <div
             v-for="item in skills"
@@ -92,7 +80,6 @@
             <span class="dot" />
             <span class="label">{{ item.name }}</span>
 
-            <!-- proficiency dots -->
             <div class="flex gap-1 ml-2">
               <span
                 v-for="i in 5"
@@ -106,12 +93,11 @@
       </div>
     </section>
 
-    <!-- ================= SELECTED WORK ================= -->
     <section class="relative py-32 px-6">
       <div
         class="absolute -top-24 left-1/2 -translate-x-1/2
-               w-[760px] h-[360px]
-               bg-purple-500/12 blur-[160px]"
+              w-[760px] h-[360px]
+              bg-purple-500/12 blur-[160px]"
       />
 
       <div class="relative max-w-7xl mx-auto">
@@ -128,9 +114,9 @@
           <RouterLink
             to="/projects"
             class="hidden md:flex items-center gap-2
-                   text-sm font-medium px-5 py-2.5
-                   border border-white/20 rounded-full
-                   hover:bg-white/5 transition"
+                  text-sm font-medium px-5 py-2.5
+                  border border-white/20 rounded-full
+                hover:bg-white/5 transition"
           >
             View All Projects →
           </RouterLink>
@@ -144,7 +130,6 @@
       </div>
     </section>
 
-    <!-- ================= CTA ================= -->
     <section class="relative py-32 px-6">
       <div
         class="absolute inset-0
@@ -164,10 +149,10 @@
         <RouterLink to="/about">
           <button
             class="h-16 px-12 rounded-full text-lg font-bold
-                   bg-primary text-primary-foreground
-                   shadow-xl shadow-primary/30
-                   hover:scale-[1.05] hover:bg-primary/90
-                   transition"
+                bg-primary text-primary-foreground
+                  shadow-xl shadow-primary/30
+                  hover:scale-[1.05] hover:bg-primary/90
+                  transition"
           >
             Let's Talk
           </button>
@@ -211,29 +196,20 @@ const expertise = [
 ]
 
 const skills = [
-  // Data & ML
   { name: "Python", level: 5 },
   { name: "Pandas", level: 5 },
   { name: "NumPy", level: 5 },
   { name: "Scikit-learn", level: 4 },
-
-  // Analytics
   { name: "Power BI", level: 4 },
   { name: "Data Visualization", level: 5 },
   { name: "Statistical Analysis", level: 4 },
-
-  // Backend
   { name: "Flask", level: 4 },
   { name: "PostgreSQL", level: 4 },
   { name: "REST API", level: 4 },
   { name: "Golang", level: 4 },
   { name: "Laravel", level: 4 },
-
-  // Frontend
   { name: "Vue.js", level: 4 },
   { name: "Tailwind CSS", level: 5 },
-
-  // Tooling
   { name: "Git", level: 4 },
   { name: "Docker", level: 4 },
   { name: "Figma", level: 4 },
@@ -256,7 +232,7 @@ const featuredProjects = computed(() => {
 })
 
 onMounted(async () => {
-  await blogStore.fetchPosts()
+  // await blogStore.fetchPosts() 
 })
 
 const isMobile = window.innerWidth < 768
@@ -333,7 +309,6 @@ const resetChipTilt = (e) => {
     0 40px 80px rgba(168,85,247,0.35);
 }
 
-/* GLASS REFLECTION */
 .tilt-glass {
   position: absolute;
   inset: 0;
@@ -351,10 +326,6 @@ const resetChipTilt = (e) => {
 .tilt-card:hover .tilt-glass {
   opacity: 0.25;
 }
-
-/* ================================
-   ARSENAL CHIP (STATIC VERSION)
-================================ */
 
 .arsenal-chip {
   display: flex;
@@ -384,7 +355,6 @@ const resetChipTilt = (e) => {
   box-shadow: 0 12px 28px rgba(168,85,247,0.35);
 }
 
-/* DOT */
 .dot {
   width: 8px;
   height: 8px;
@@ -392,7 +362,6 @@ const resetChipTilt = (e) => {
   background: #a855f7;
 }
 
-/* LABEL */
 .label {
   font-weight: 600;
   color: white;

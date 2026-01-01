@@ -1,7 +1,5 @@
 <template>
-  <!-- Filter -->
   <div v-if="showFilters" class="mb-12 relative group/filters">
-    <!-- Gradient Fade Masks -->
     <div class="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#0b0b0f] to-transparent z-10 pointer-events-none md:hidden" />
     <div class="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#0b0b0f] to-transparent z-10 pointer-events-none md:hidden" />
 
@@ -23,7 +21,6 @@
     </div>
   </div>
 
-  <!-- Grid -->
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     <ProjectCardWork
       v-for="(project, index) in filteredProjects"
@@ -185,14 +182,12 @@ const filteredProjects = computed(() => {
 })
 </script>
 <style scoped>
-/* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 </style>

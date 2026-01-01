@@ -1,7 +1,6 @@
 version: "3.8"
 
 services:
-  # PostgreSQL Database
   postgres:
     image: postgres:15-alpine
     container_name: portfolio_db
@@ -22,7 +21,6 @@ services:
       - portfolio_network
     restart: unless-stopped
 
-  # Go Backend API
   backend:
     build:
       context: ..
@@ -55,7 +53,6 @@ services:
       timeout: 5s
       retries: 3
 
-  # Vue Frontend
   frontend:
     build:
       context: ..

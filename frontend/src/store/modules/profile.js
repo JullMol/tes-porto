@@ -21,7 +21,6 @@ export const useProfileStore = defineStore("profile", {
         this.profile = response.data;
       } catch (error) {
         this.error = error.message;
-        // Set default profile if API fails
         this.profile = {
           name: "Your Name",
           tagline: "Python Developer | Full Stack Engineer",

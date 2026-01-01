@@ -3,7 +3,6 @@
     v-if="project"
     class="min-h-screen bg-[#0b0b0f] text-white"
   >
-    <!-- HERO -->
     <section class="relative h-[70vh] flex items-center">
       <img
         :src="project.heroImage"
@@ -21,7 +20,6 @@
       </div>
     </section>
 
-    <!-- CONTENT -->
     <section class="max-w-4xl mx-auto px-6 py-24">
       <Block title="Problem">
         <p>{{ project.sections.problem }}</p>
@@ -63,7 +61,6 @@
     </section>
   </div>
 
-  <!-- FALLBACK -->
   <div
     v-else
     class="min-h-screen flex items-center justify-center text-white/60"

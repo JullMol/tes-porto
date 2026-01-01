@@ -2,36 +2,27 @@
   <section
     ref="hero"
     class="relative min-h-screen flex items-center justify-center
-           overflow-hidden bg-[#0b0b0f]"
+          overflow-hidden bg-[#0b0b0f]"
     @mousemove="onMouseMove"
     @mouseleave="resetTilt"
   >
-    <!-- ===============================
-         GLOBAL FAKE LIGHT
-    ================================ -->
     <div
       class="pointer-events-none absolute inset-0 transition-opacity duration-300"
       :style="lightStyle"
     />
 
-    <!-- ===============================
-         HERO CARD (3D ROOT)
-    ================================ -->
     <div
       ref="card"
       class="relative z-10 max-w-7xl w-full mx-6
-             grid lg:grid-cols-2 gap-20 items-center
-             rounded-[2.5rem]
-             bg-white/5 backdrop-blur-xl
-             border border-white/15
-             shadow-2xl shadow-purple-500/20
-             transform-gpu will-change-transform
-             px-12 py-20"
+            grid lg:grid-cols-2 gap-20 items-center
+            rounded-[2.5rem]
+            bg-white/5 backdrop-blur-xl
+            border border-white/15
+            shadow-2xl shadow-purple-500/20
+            transform-gpu will-change-transform
+            px-12 py-20"
       :style="cardStyle"
     >
-      <!-- ===============================
-           LEFT CONTENT (DEPTH STACK)
-      ================================ -->
       <div class="space-y-8">
         <h1
           class="text-5xl md:text-7xl font-black leading-tight"
@@ -58,7 +49,7 @@
           <RouterLink to="/projects">
             <button
               class="px-8 py-4 rounded-full border border-white/25
-                     hover:bg-white/10 transition"
+                    hover:bg-white/10 transition"
             >
               Explore My Work
             </button>
@@ -79,18 +70,14 @@
         </div>
       </div>
 
-      <!-- ===============================
-           RIGHT — TRUE 3D LOTTIE
-      ================================ -->
       <div
         class="relative flex items-center justify-center"
         :style="z(60)"
       >
-        <!-- glass reflection -->
         <div
           class="absolute inset-0 rounded-3xl
-                 bg-gradient-to-tr from-white/10 to-transparent
-                 blur-xl opacity-40"
+                bg-gradient-to-tr from-white/10 to-transparent
+                blur-xl opacity-40"
         />
 
         <dotlottie-wc
@@ -108,9 +95,6 @@
 <script setup>
 import { ref, computed, onMounted } from "vue"
 
-/* ===============================
-   REFS
-================================ */
 const hero = ref(null)
 const card = ref(null)
 const lottie = ref(null)
@@ -118,16 +102,10 @@ const lottie = ref(null)
 const mouseX = ref(0)
 const mouseY = ref(0)
 
-/* ===============================
-   ENV CHECK
-================================ */
 const isMobile =
   window.matchMedia("(max-width: 768px)").matches ||
   window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
-/* ===============================
-   MOUSE TRACKING
-================================ */
 const onMouseMove = (e) => {
   if (isMobile || !hero.value) return
 
@@ -141,9 +119,6 @@ const resetTilt = () => {
   mouseY.value = 0
 }
 
-/* ===============================
-   3D CARD TRANSFORM
-================================ */
 const cardStyle = computed(() => {
   if (isMobile) return {}
 
@@ -159,9 +134,6 @@ const cardStyle = computed(() => {
   }
 })
 
-/* ===============================
-   FAKE DYNAMIC LIGHT
-================================ */
 const lightStyle = computed(() => {
   if (isMobile) return { opacity: 0 }
 
@@ -176,9 +148,6 @@ const lightStyle = computed(() => {
   }
 })
 
-/* ===============================
-   DEPTH HELPER
-================================ */
 const z = (value) => {
   if (isMobile) return {}
   return {
@@ -186,9 +155,6 @@ const z = (value) => {
   }
 }
 
-/* ===============================
-   FORCE LOTTIE PLAY (ANTI JPG)
-================================ */
 onMounted(() => {
   setTimeout(() => {
     lottie.value?.play?.()

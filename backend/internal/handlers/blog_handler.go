@@ -57,10 +57,8 @@ func (h *BlogHandler) Create(w http.ResponseWriter, r *http.Request) {
         return
     }
     
-    // Generate slug from title
     post.Slug = generateSlug(post.Title)
     
-    // Generate excerpt if not provided
     if post.Excerpt == "" && len(post.Content) > 150 {
         post.Excerpt = post.Content[:150] + "..."
     }
