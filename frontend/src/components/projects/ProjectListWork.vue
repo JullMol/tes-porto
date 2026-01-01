@@ -54,10 +54,10 @@ const activeTag = ref("All")
 
 const internalProjects = [
 {
-    title: 'Pharmora — Intelligent Drug Information System',
+    title: 'Pharmora - Intelligent Drug Information System',
     slug: 'pharmora',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
-    tags: ['Python', 'Machine Learning', 'NLP', 'Healthcare', 'AI Chatbot'],
+    tags: ['Python', 'Data Structure and Algorithm', 'Searching and Sorting Algorithm', 'Healthcare', 'AI Chatbot'],
     description:
       'AI-powered drug information and recommendation system that leverages natural language processing to help users explore pharmaceutical data efficiently and accurately, improving access to reliable medical insights.',
     demo: '#',
@@ -66,16 +66,16 @@ const internalProjects = [
     {
     title: 'PSD Program Analytics Dashboard',
     image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800',
-    tags: ['Educational Analytics', 'Data Pipeline', 'Student Performance', 'Curriculum Insights'],
+    tags: ['Digital Signal Processing', 'Machine Learning', 'Classification', 'Deep Learning', 'Data Visualization', 'Python'],
     description:
       'Specialized analytics platform for Data Science program metrics with automated data pipelines, supporting data-driven curriculum improvement and student success initiatives.',
     demo: '#',
     github: '#'
   },
   {
-    title: 'AI Stroke Detection & Classification',
+    title: 'AI Stroke Detection',
     image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800',
-    tags: ['Deep Learning', 'Medical AI', 'TensorFlow', 'Computer Vision', 'PCA'],
+    tags: ['Deep Learning', 'Medical AI', 'TensorFlow', 'Computer Vision', 'PCA', 'Python'],
     description:
       'Deep learning model for automated stroke detection using CT brain scans, achieving high accuracy to support medical professionals in critical diagnostic decisions during emergency situations.',
     demo: 'https://artifical-intelligence-project.streamlit.app/',
@@ -84,7 +84,7 @@ const internalProjects = [
   {
     title: 'Food Security Segmentation System',
     image: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800',
-    tags: ['K-Means', 'Unsupervised Learning', 'Python', 'Data Integration', 'Policy Analytics'],
+    tags: ['K-Means', 'Unsupervised Learning', 'Python', 'Data Integration', 'Policy Analytics', 'Python'],
     description:
       'Multi-source data analysis platform using K-Means clustering to segment Indonesian provinces by food security indicators, providing actionable insights for evidence-based policy development.',
     demo: '#',
@@ -100,16 +100,16 @@ const internalProjects = [
     github: 'https://github.com/JullMol/Statistical-Inference-Project.git'
   },
   {
-    title: 'Gizmo Notes — AI Knowledge Management',
+    title: 'Gizmo Notes - AI Knowledge Management',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800',
-    tags: ['Vue.js', 'NLP', 'Cloud', 'Collaborative Tools', 'Knowledge Graphs'],
+    tags: ['HTML', 'CSS', 'JavaScript', 'Cloud', 'Collaborative', 'Knowledge Management'],
     description:
       'Cloud-based note-taking platform with AI assistant for automated summarization and quiz generation, featuring bidirectional linking and collaborative editing for enhanced learning experiences.',
     demo: '#',
     github: 'https://github.com/JullMol/Gizmo-Notes.git'
   },
   {
-    title: 'ACOS — Docker Development Environment',
+    title: 'ACOS - Docker Development Environment',
     image: 'https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800',
     tags: ['Docker', 'DevOps', 'MySQL', 'NGINX', 'Infrastructure'],
     description:
@@ -118,9 +118,9 @@ const internalProjects = [
     github: 'https://github.com/JullMol/Project-AKSO.git'
   },
   {
-    title: 'CERAH — Contextual Weather Platform',
+    title: 'CERAH - Contextual Weather Platform',
     image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800',
-    tags: ['UI/UX', 'Weather API', 'Responsive Design', 'Context-Aware'],
+    tags: ['UI/UX', 'Weather API', 'Responsive Design', 'Context-Aware', 'Figma', 'UI/UX Design'],
     description:
       'Human-centered weather application providing context-aware information for daily decision-making, featuring responsive design and high-precision prediction technology integration.',
     demo: 'https://www.figma.com/proto/8jz9mmqU1KfNwkf97xF0jY/CERAH-%E2%80%93-Weather-App-Design.?page-id=0%3A1&node-id=111-45&p=f&viewport=-130%2C486%2C0.78&t=D5px4jd3ESloe4mK-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=81%3A17&show-proto-sidebar=1',
@@ -129,16 +129,16 @@ const internalProjects = [
   {
     title: 'Movie Analytics Dashboard',
     image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800',
-    tags: ['Business Intelligence', 'Data Visualization', 'Entertainment Analytics', 'Tableau'],
+    tags: ['Business Intelligence', 'Data Visualization', 'Entertainment Analytics', 'Python', 'Streamlit', 'Machine Learning'],
     description:
       'Interactive BI dashboard analyzing box office performance, ratings, and genre trends with dynamic filtering capabilities to support entertainment industry strategic decisions.',
     demo: 'https://movie-dashboard-dims.streamlit.app/',
     github: 'https://github.com/JullMol/Movie-Analytics-Dashboard.git'
   },
   {
-    title: 'PEMTEKS — Textile Industry Analytics',
+    title: 'PEMTEKS - Textile Industry Analytics',
     image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800',
-    tags: ['Manufacturing BI', 'KPI Tracking', 'Production Analytics', 'Quality Control'],
+    tags: ['Machine Learning', 'Python', 'Streamlit', 'Segmentation', 'Clustering', 'Data Integration', 'Data Visualization', 'Business Intelligence'],
     description:
       'Real-time textile industry performance monitoring dashboard integrating multiple data sources for comprehensive production metrics and quality control analysis.',
     demo: 'https://dashboard-market-spy.streamlit.app/',
@@ -147,7 +147,7 @@ const internalProjects = [
   {
     title: 'Database Management Dashboard',
     image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800',
-    tags: ['Full-Stack', 'CRUD', 'Database', 'Query Optimization', 'UI/UX'],
+    tags: ['Full-Stack', 'Python', 'Streamlit', 'CRUD', 'Database', 'Query Optimization', 'UI/UX'],
     description:
       'User-friendly database management interface with secure CRUD operations, democratizing database access for non-technical users without requiring SQL expertise.',
     demo: 'https://dashboard-database1.streamlit.app/',

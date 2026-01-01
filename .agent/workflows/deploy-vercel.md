@@ -38,5 +38,18 @@ Vercel usually auto-detects everything correctly for Vue/Vite projects.
 2. Wait ~1 minute.
 3. 🎉 **Done!** You will get a link like `website-porto.vercel.app`.
 
-## Bonus: Custom Domain
 If you have a domain (e.g., `dimasrafi.com`), you can go to Settings -> Domains in Vercel to add it for free (just verified via DNS).
+
+## Step 6: How to Update Your Website
+Vercel is **Automatic**. You do NOT need to open the Vercel dashboard again.
+
+Whenever you want to update your website:
+1. Make changes in VS Code.
+2. Open Terminal.
+3. Run these 3 commands:
+   ```bash
+   git add .
+   git commit -m "Describe your change here"
+   git push origin main
+   ```
+4. Vercel will detect the new code and **Redeploy Automatically** within 1-2 minutes.

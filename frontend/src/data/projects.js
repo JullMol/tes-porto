@@ -1,8 +1,8 @@
 export default [
   {
-    title: "Pharmora — Drug Information & Recommendation System",
+    title: "Pharmora - Drug Information & Recommendation System",
     slug: "pharmora",
-    year: "Apr 2025 – Jun 2025",
+    year: "Apr 2025 - Jun 2025",
     role: "Independent Data Science Project",
     heroImage:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600",
@@ -18,11 +18,10 @@ export default [
       ],
       tech: [
         "Python",
-        "Machine Learning",
-        "NLP",
-        "Flask",
-        "REST API",
-        "PostgreSQL",
+        "Data Structure and Algorithm",
+        "Searching and Sorting Algorithm",
+        "Healthcare Data Integration",
+        "SQLite",
         "AI Chatbot Integration",
       ],
       impact: [
@@ -36,9 +35,9 @@ export default [
     },
   },
   {
-    title: "Dashboard-PSD — Data Science Program Analytics",
+    title: "Dashboard-PSD - Data Science Program Analytics",
     slug: "dashboard-psd",
-    year: "Oct 2024 – Dec 2024",
+    year: "Oct 2024 - Dec 2024",
     role: "Independent Analytics Project",
     heroImage:
       "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1600",
@@ -53,11 +52,11 @@ export default [
         "Developed interactive visualizations for cohort analysis, course performance comparison, skill gap identification, and graduate employment tracking with drill-down capabilities and PDF export functionality.",
       ],
       tech: [
-        "Tableau",
-        "Python (pandas, ETL)",
-        "SQL",
-        "Data Modeling",
+        "Python",
+        "Machine Learning",
+        "Deep Learning",
         "Academic Data Integration",
+        "Data Visualization",
         "Statistical Analysis",
       ],
       impact: [
@@ -73,7 +72,7 @@ export default [
   {
     title: "AI Stroke Detection & Classification System",
     slug: "stroke-detection",
-    year: "Oct 2024 – Dec 2024",
+    year: "Oct 2024 - Dec 2024",
     role: "Independent Machine Learning Project",
     heroImage:
       "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1600",
@@ -110,7 +109,7 @@ export default [
   {
     title: "Multi-Source Food Security Segmentation",
     slug: "food-security",
-    year: "Oct 2024 – Dec 2024",
+    year: "Oct 2024 - Dec 2024",
     role: "Independent Machine Learning Project",
     heroImage:
       "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=1600",
@@ -180,9 +179,9 @@ export default [
     },
   },
   {
-    title: "Gizmo Notes — AI-Powered Knowledge Management Platform",
+    title: "Gizmo Notes - AI-Powered Knowledge Management Platform",
     slug: "gizmo-notes",
-    year: "Sep 2024 – Dec 2024",
+    year: "Sep 2024 - Dec 2024",
     role: "Independent Full-Stack Project",
     heroImage:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600",
@@ -198,17 +197,14 @@ export default [
         "Developed responsive web interface with Markdown support and rich media embedding.",
       ],
       tech: [
-        "React.js",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "WebSocket (Socket.io)",
-        "OpenAI API",
-        "NLP",
-        "JWT Authentication",
-        "AWS S3",
-        "Docker",
-        "GitHub Actions CI/CD",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Cloud",
+        "Knowledge Management",
+        "AI Assistant",
+        "Real-time Collaboration",
+        "Responsive Design",
       ],
       impact: [
         "Transformed passive note archives into active learning partners, improving information retention by 40% based on user surveys.",
@@ -221,9 +217,9 @@ export default [
     },
   },
   {
-    title: "ACOS Project — Docker-Based Development Environment",
+    title: "ACOS Project - Docker-Based Development Environment",
     slug: "acos-project",
-    year: "Nov 2024 – Dec 2024",
+    year: "Nov 2024 - Dec 2024",
     role: "Independent DevOps Project",
     heroImage:
       "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=1600",
@@ -258,9 +254,9 @@ export default [
     },
   },
   {
-    title: "CERAH — Weather Information Platform",
+    title: "CERAH - Weather Information Platform",
     slug: "cerah",
-    year: "Apr 2024 – Jun 2024",
+    year: "Apr 2024 - Jun 2024",  
     role: "Independent Full-Stack Project",
     heroImage:
       "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=1600",
@@ -276,14 +272,11 @@ export default [
         "Developed location-based services with automatic city detection and favorites management.",
       ],
       tech: [
-        "React.js",
-        "Node.js",
+        "UI/UX Design",
         "Weather API Integration",
         "Geolocation API",
         "Responsive Design",
-        "REST API",
-        "MongoDB",
-        "Material-UI",
+        "Figma"
       ],
       impact: [
         "Enhanced user experience through contextual weather information, achieving 85% user satisfaction rating.",
@@ -298,7 +291,7 @@ export default [
   {
     title: "Movie Analytics Dashboard",
     slug: "movie-analytics",
-    year: "Oct 2024 – Nov 2024",
+    year: "Oct 2024 - Nov 2024",
     role: "Independent BI Project",
     heroImage:
       "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1600",
@@ -313,12 +306,11 @@ export default [
         "Developed advanced visualizations including revenue heatmaps, ratings correlation scatter plots, and time-series analysis for trend identification.",
       ],
       tech: [
-        "Tableau/Power BI",
-        "Python (data preprocessing)",
-        "SQL",
-        "DAX",
-        "Data Modeling",
-        "Interactive Visualizations",
+        "Streamlit",
+        "Python",
+        "Data Visualization",
+        "Data Analysis",
+        "Machine Learning"
       ],
       impact: [
         "Enabled data-driven decision making for entertainment industry stakeholders, supporting content strategy and investment decisions.",
@@ -331,9 +323,9 @@ export default [
     },
   },
   {
-    title: "Dashboard-PEMTEKS — Textile Industry Analytics",
+    title: "Dashboard-PEMTEKS - Textile Industry Analytics",
     slug: "dashboard-pemteks",
-    year: "Oct 2024 – Dec 2024",
+    year: "Oct 2024 - Dec 2024",
     role: "Independent BI Project",
     heroImage:
       "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800",
@@ -348,13 +340,11 @@ export default [
         "Developed KPI tracking system monitoring production efficiency, defect rates, machine downtime, and inventory levels with responsive visualizations and automated alert system for threshold breaches.",
       ],
       tech: [
-        "Power BI",
-        "SQL Server",
-        "Python (ETL)",
-        "DAX",
-        "Power Query",
-        "IoT Data Integration",
-        "Real-time Dashboards",
+        "Streamlit",
+        "Python",
+        "Data Visualization",
+        "Data Analysis",
+        "Machine Learning",
       ],
       impact: [
         "Improved operational decision-making through real-time performance insights, reducing production downtime by 25% and quality defects by 18%.",
@@ -367,7 +357,7 @@ export default [
     },
   },
   {
-    title: "Dashboard-Database1 — Database Management System",
+    title: "Dashboard-Database1 - Database Management System",
     slug: "dashboard-database1",
     year: "Nov 2024",
     role: "Independent Full-Stack Project",
@@ -384,14 +374,9 @@ export default [
         "Created intuitive interface with drag-and-drop filtering, export functionality (CSV/Excel), and role-based access control ensuring data security.",
       ],
       tech: [
-        "React.js",
-        "Node.js",
-        "Express.js",
         "PostgreSQL",
-        "SQL",
-        "RESTful API",
-        "JWT Authentication",
-        "Data Visualization (Chart.js)",
+        "Python",
+        "Streamlit"
       ],
       impact: [
         "Democratized database access for 50+ non-technical users, improving data accessibility and reducing dependency on database administrators by 60%.",
