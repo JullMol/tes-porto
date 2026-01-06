@@ -64,6 +64,7 @@ const formattedProjects = computed(() => {
     description: p.summary,
     tags: p.sections?.tech || [],
     demo: p.links?.demo,
+    video: p.links?.video,
     github: p.links?.github
   }))
 })
