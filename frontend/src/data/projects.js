@@ -1,5 +1,84 @@
 export default [
   {
+    title: "Nebula - Distributed Serverless Code Execution Platform",
+    slug: "nebula",
+    year: "Jan 2026",
+    role: "Independent Backend & Distributed Systems Project",
+    heroImage:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600",
+    summary:
+      "A lightweight, distributed serverless platform that executes Python and Node.js code in isolated Docker containers with automatic load balancing, real-time monitoring, and gRPC-based microservices architecture.",
+    sections: {
+      problem:
+        "Cloud-native serverless platforms like AWS Lambda are complex and expensive for learning purposes. Developers need hands-on experience with distributed systems concepts including load balancing, message queues, container orchestration, and microservices communication without the overhead of production cloud services.",
+      approach: [
+        "Architected a distributed serverless platform with API Gateway handling HTTP requests, job persistence in PostgreSQL, and async job queuing via Redis for reliable task distribution.",
+        "Implemented gRPC-based communication between Gateway and Worker nodes with Protocol Buffers for high-performance inter-service messaging and automatic code generation.",
+        "Built Worker nodes that dynamically spin up isolated Docker containers, mount user code, capture execution logs, and return results through the distributed pipeline.",
+        "Developed Round-Robin load balancer distributing jobs across multiple Worker instances, with Prometheus metrics collection and Grafana dashboards for real-time monitoring.",
+      ],
+      tech: [
+        "Go",
+        "gRPC",
+        "Protocol Buffers",
+        "Docker",
+        "Redis",
+        "PostgreSQL",
+        "Prometheus",
+        "Grafana",
+        "Fiber",
+        "Microservices",
+      ],
+      impact: [
+        "Created a fully functional mini-cloud platform demonstrating the core concepts behind AWS Lambda, Google Cloud Functions, and Azure Functions.",
+        "Platform successfully executes user-submitted Python and Node.js code in isolated containers with sub-3-second end-to-end latency from submission to result retrieval.",
+      ],
+    },
+    links: {
+      demo: "https://drive.google.com/file/d/1ugeKVyZrPLaF5z-E72AXbQxIUsvwcAoz/preview",
+      github: "https://github.com/JullMol/nebula",
+    },
+  },
+  {
+    title: "Titan Ledger - High-Performance Distributed Ledger System",
+    slug: "titan-ledger",
+    year: "Jan 2026",
+    role: "Independent Backend Engineering Project",
+    heroImage:
+      "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1600",
+    summary:
+      "A production-ready digital wallet and transaction system built with Go, featuring atomic fund transfers, double-entry bookkeeping, idempotency guarantees, and Hexagonal Architecture for maximum testability and maintainability.",
+    sections: {
+      problem:
+        "Financial systems require bulletproof transaction handling where race conditions, duplicate transactions, and data inconsistencies can lead to monetary losses. Building such systems demands deep understanding of concurrency control, database transactions, and clean architecture principles.",
+      approach: [
+        "Implemented Hexagonal Architecture (Ports & Adapters) separating business logic from infrastructure, enabling easy testing and future technology swaps without affecting core domain.",
+        "Built atomic fund transfers using PostgreSQL transactions with row-level locking (FOR UPDATE) to prevent race conditions during concurrent balance updates.",
+        "Designed idempotency mechanism using unique reference_id constraints, ensuring duplicate transaction submissions are safely rejected without side effects.",
+        "Created auto-migration system that initializes database schema on startup, and interactive API playground for real-time testing and demonstration.",
+      ],
+      tech: [
+        "Go",
+        "Fiber",
+        "PostgreSQL",
+        "Docker",
+        "Hexagonal Architecture",
+        "Railway",
+        "pgx",
+        "Viper",
+      ],
+      impact: [
+        "Achieved zero data inconsistencies in concurrent transaction testing with 100+ simultaneous requests, demonstrating production-grade reliability.",
+        "System handles wallet creation, deposits, and transfers with sub-100ms response times, deployed and accessible via live API playground.",
+      ],
+    },
+    links: {
+      demo: "https://titan-ledger-production.up.railway.app/",
+      video: "https://drive.google.com/file/d/10SgKvQvFlqQ4tRja4M_64prnaKz86Ld3/preview",
+      github: "https://github.com/JullMol/titan-ledger",
+    },
+  },
+  {
     title: "Pharmora - Drug Information & Recommendation System",
     slug: "pharmora",
     year: "Apr 2025 - Jun 2025",

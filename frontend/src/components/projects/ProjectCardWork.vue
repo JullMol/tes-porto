@@ -71,6 +71,24 @@
             </button>
           </a>
 
+          <!-- Video Button -->
+          <a v-if="project.video" :href="project.video" target="_blank" @click.stop>
+            <button
+              class="magnetic icon-btn bg-red-500 text-white"
+              @mousemove="magneticMove"
+              @mouseleave="magneticLeave"
+              title="Watch Video Demo"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7L8 5z" />
+              </svg>
+            </button>
+          </a>
+
           <a :href="project.github" target="_blank" @click.stop>
             <button
               class="magnetic icon-btn border border-white text-white"

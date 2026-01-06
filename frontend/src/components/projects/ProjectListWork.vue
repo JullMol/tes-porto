@@ -54,6 +54,27 @@ const activeTag = ref("All")
 
 const internalProjects = [
 {
+    title: 'Nebula - Distributed Serverless Platform',
+    slug: 'nebula',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800',
+    tags: ['Go', 'gRPC', 'Docker', 'Redis', 'PostgreSQL', 'Prometheus', 'Grafana', 'Microservices'],
+    description:
+      'A lightweight, distributed serverless platform that executes Python and Node.js code in isolated Docker containers with automatic load balancing, real-time monitoring, and gRPC-based microservices architecture.',
+    demo: 'https://drive.google.com/file/d/1ugeKVyZrPLaF5z-E72AXbQxIUsvwcAoz/preview',
+    github: 'https://github.com/JullMol/nebula'
+  },
+{
+    title: 'Titan Ledger - Distributed Ledger System',
+    slug: 'titan-ledger',
+    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800',
+    tags: ['Go', 'PostgreSQL', 'Hexagonal Architecture', 'Docker', 'Backend', 'Fiber', 'Distributed Systems'],
+    description:
+      'Production-ready digital wallet and transaction system with atomic transfers, double-entry bookkeeping, idempotency guarantees, and interactive API playground for real-time testing.',
+    demo: 'https://titan-ledger-production.up.railway.app/',
+    video: 'https://drive.google.com/file/d/10SgKvQvFlqQ4tRja4M_64prnaKz86Ld3/preview',
+    github: 'https://github.com/JullMol/titan-ledger'
+  },
+{
     title: 'Pharmora - Intelligent Drug Information System',
     slug: 'pharmora',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
