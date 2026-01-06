@@ -63,6 +63,16 @@ const internalProjects = [
     demo: 'https://drive.google.com/file/d/1ugeKVyZrPLaF5z-E72AXbQxIUsvwcAoz/preview',
     github: 'https://github.com/JullMol/nebula'
   },
+  {
+    title: 'Aether-Chain - Distributed Data Availability Layer',
+    slug: 'aether-chain',
+    image: 'https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800',
+    tags: ['Go', 'libp2p', 'gRPC', 'WebSocket', 'WebAssembly', 'React', 'Docker', 'Blockchain', 'Distributed Systems'],
+    description:
+      'High-performance distributed ledger combining LSM-Tree storage with blockchain immutability and P2P networking. Features React dashboard with real-time WebSocket updates and WebAssembly smart contracts.',
+    demo: '#',
+    github: 'https://github.com/JullMol/aether-chain'
+  },
 {
     title: 'Titan Ledger - Distributed Ledger System',
     slug: 'titan-ledger',

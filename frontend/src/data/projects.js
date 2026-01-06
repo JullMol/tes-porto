@@ -40,6 +40,47 @@ export default [
     },
   },
   {
+    title: "Aether-Chain - Distributed Data Availability Layer",
+    slug: "aether-chain",
+    year: "Jan 2026",
+    role: "Independent Backend & Blockchain Engineering Project",
+    heroImage:
+      "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=1600",
+    summary:
+      "A high-performance distributed ledger combining LSM-Tree storage engine with blockchain immutability and P2P networking. Features real-time React dashboard, WebAssembly smart contracts, and multi-node cluster deployment.",
+    sections: {
+      problem:
+        "Traditional databases lack immutability guarantees while blockchains sacrifice performance. Building a system that combines the speed of modern databases with blockchain's tamper-proof properties requires deep understanding of storage engines, distributed systems, and cryptographic data structures.",
+      approach: [
+        "Architected LSM-Tree storage engine with Skip-List memtable for O(log n) writes and SSTable persistence with memory-mapped files (mmap) for ultra-fast reads.",
+        "Implemented blockchain integrity layer with SHA-256 hash chaining between blocks and Merkle Tree per block for cryptographic data verification.",
+        "Built P2P networking layer using libp2p with mDNS for zero-config peer discovery and GossipSub for real-time block propagation across nodes.",
+        "Developed WebAssembly smart contract execution using Wazero runtime for sandboxed validation logic without CGO dependencies.",
+        "Created interactive React dashboard with WebSocket real-time updates, terminal interface, and architecture visualization for live demonstrations.",
+      ],
+      tech: [
+        "Go",
+        "libp2p",
+        "gRPC",
+        "WebSocket",
+        "WebAssembly",
+        "React",
+        "TailwindCSS",
+        "Docker",
+        "LSM-Tree",
+        "Merkle Tree",
+      ],
+      impact: [
+        "Successfully demonstrates core blockchain concepts including hash chaining, Merkle Trees, and P2P consensus in an accessible, interactive format.",
+        "Multi-node Docker cluster enables running 3-node testnet locally, showcasing distributed systems principles with real-time block synchronization.",
+      ],
+    },
+    links: {
+      demo: "https://drive.google.com/file/d/1TobQt7VAi5iu4IKk5nT4ZKwuvht_FnWV/preview",
+      github: "https://github.com/JullMol/aether-chain",
+    },
+  },
+  {
     title: "Titan Ledger - High-Performance Distributed Ledger System",
     slug: "titan-ledger",
     year: "Jan 2026",
