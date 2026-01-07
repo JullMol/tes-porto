@@ -7,7 +7,7 @@ export default [
     heroImage:
       "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600",
     summary:
-      "A powerful 'Swiss Army Knife' for cybersecurity — an all-in-one desktop application combining real-time packet capture, threat detection, and intrusion prevention. Built with Go, Python, and React using Wails framework.",
+      "A powerful 'Swiss Army Knife' for cybersecurity an all-in-one desktop application combining real-time packet capture, threat detection, and intrusion prevention. Built with Go, Python, and React using Wails framework.",
     sections: {
       problem:
         "Network security monitoring tools are often complex, expensive, or require distributed infrastructure. Developers and security enthusiasts need hands-on experience with IPS/IDS concepts without the overhead of enterprise solutions. Traditional tools also lack modern UI/UX, making them intimidating for beginners.",
