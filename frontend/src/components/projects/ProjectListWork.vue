@@ -54,6 +54,16 @@ const activeTag = ref("All")
 
 const internalProjects = [
 {
+    title: 'Aegis-X - Network Security Suite',
+    slug: 'aegis-x',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800',
+    tags: ['Go', 'Python', 'React', 'Wails', 'Cybersecurity', 'Desktop App', 'Network Security', 'IPS'],
+    description:
+      'All-in-one network security monitor combining real-time packet capture, threat detection, credential leak monitoring, and one-click IP blocking. A Swiss Army Knife for cybersecurity built with Go, Python, and React.',
+    demo: 'https://github.com/JullMol/aegis-x/releases',
+    github: 'https://github.com/JullMol/aegis-x'
+  },
+{
     title: 'Nebula - Distributed Serverless Platform',
     slug: 'nebula',
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800',

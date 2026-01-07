@@ -1,5 +1,46 @@
 export default [
   {
+    title: "Aegis-X - Network Security Monitor & Intrusion Prevention System",
+    slug: "aegis-x",
+    year: "Jan 2026",
+    role: "Independent Cybersecurity & Desktop Application Project",
+    heroImage:
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600",
+    summary:
+      "A powerful 'Swiss Army Knife' for cybersecurity — an all-in-one desktop application combining real-time packet capture, threat detection, and intrusion prevention. Built with Go, Python, and React using Wails framework.",
+    sections: {
+      problem:
+        "Network security monitoring tools are often complex, expensive, or require distributed infrastructure. Developers and security enthusiasts need hands-on experience with IPS/IDS concepts without the overhead of enterprise solutions. Traditional tools also lack modern UI/UX, making them intimidating for beginners.",
+      approach: [
+        "Architected a modular security suite with Go handling high-performance packet capture using gopacket/Npcap, while Python performs deep packet inspection and threat analysis.",
+        "Implemented Intrusion Kill Chain feature enabling one-click IP blocking through Windows Firewall (netsh) with UAC elevation support for real-time threat response.",
+        "Built Credential Leak Monitor using regex-based deep packet inspection on HTTP traffic (port 80), detecting exposed passwords and triggering full-screen red alerts.",
+        "Developed Geo-IP Mapping system enriching captured traffic with country location data, revealing hidden external connections to foreign servers.",
+        "Created modern React dashboard with glassmorphism UI, real-time traffic visualization, protocol distribution charts, and threat advisory panel using Wails framework.",
+      ],
+      tech: [
+        "Go",
+        "Python",
+        "React",
+        "TypeScript",
+        "Wails",
+        "gopacket",
+        "Npcap",
+        "Windows Firewall",
+        "Recharts",
+        "Cybersecurity",
+      ],
+      impact: [
+        "Demonstrates professional-grade security tool development combining 3 languages (Go, Python, JavaScript) into a single distributable desktop application.",
+        "Features real IPS functionality including packet capture, threat detection, and instant firewall blocking — concepts used in enterprise tools like Snort and Suricata.",
+      ],
+    },
+    links: {
+      demo: "https://github.com/JullMol/aegis-x/releases",
+      github: "https://github.com/JullMol/aegis-x",
+    },
+  },
+  {
     title: "Nebula - Distributed Serverless Code Execution Platform",
     slug: "nebula",
     year: "Jan 2026",
