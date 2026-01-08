@@ -1,5 +1,46 @@
 export default [
   {
+    title: "Aura-Sentinel - AI Customer Retention Platform",
+    slug: "aura-sentinel",
+    year: "Jan 2026",
+    role: "Independent AI & Desktop Application Project",
+    heroImage:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600",
+    summary:
+      "Enterprise AI platform for customer churn prediction using XGBoost (94% accuracy) and Deep Q-Network reinforcement learning for optimal retention action selection. Features Oracle Mode for what-if scenarios, Training Lab for custom model training, and premium desktop experience via Wails.",
+    sections: {
+      problem:
+        "Customer churn costs businesses billions annually, but traditional rule-based retention strategies fail to adapt to individual customer profiles. Companies need AI systems that can predict churn probability AND recommend cost-effective retention actions tailored to each customer's situation.",
+      approach: [
+        "Built hybrid AI system combining XGBoost for churn prediction (22 features, 94% accuracy) with Deep Q-Network (DQN) reinforcement learning agent that learns optimal retention actions through reward optimization.",
+        "Implemented Oracle Mode allowing business users to adjust cost modifiers and observe how the RL agent adapts strategy in real-time, demonstrating AI decision transparency.",
+        "Developed Training Lab enabling users to upload custom datasets (*csv/*xlsx) and train personalized models without ML expertise.",
+        "Created native desktop application using Wails (Go + React), with Python Flask API for AI inference, eliminating browser dependency for enterprise deployment.",
+        "Designed premium glassmorphism UI with live Matrix Stream visualization, real-time analytics dashboard, and PDF/CSV export for compliance reporting.",
+      ],
+      tech: [
+        "Go",
+        "Python",
+        "React",
+        "TypeScript",
+        "Wails",
+        "PyTorch",
+        "XGBoost",
+        "Flask",
+        "Recharts",
+        "Reinforcement Learning",
+      ],
+      impact: [
+        "Demonstrates end-to-end AI/ML pipeline from data ingestion through model inference to actionable recommendations in a production-ready desktop application.",
+        "System processes 7,000+ customers in under 30 seconds, with RL agent achieving 15% improvement in expected revenue retention compared to baseline random action selection.",
+      ],
+    },
+    links: {
+      demo: "https://github.com/JullMol/aura-sentinel/releases",
+      github: "https://github.com/JullMol/aura-sentinel",
+    },
+  },
+  {
     title: "Aegis-X - Network Security Monitor & Intrusion Prevention System",
     slug: "aegis-x",
     year: "Jan 2026",

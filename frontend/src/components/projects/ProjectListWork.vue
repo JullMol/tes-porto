@@ -54,6 +54,16 @@ const activeTag = ref("All")
 
 const internalProjects = [
 {
+    title: 'Aura-Sentinel - AI Customer Retention Platform',
+    slug: 'aura-sentinel',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
+    tags: ['Go', 'Python', 'React', 'Wails', 'Machine Learning', 'Reinforcement Learning', 'XGBoost', 'PyTorch', 'Desktop App', 'AI'],
+    description:
+      'Enterprise AI platform for customer churn prediction using XGBoost (94% accuracy) and Deep Q-Network reinforcement learning for optimal retention action selection. Features Oracle Mode for what-if scenarios and Training Lab for custom model training.',
+    demo: 'https://github.com/JullMol/aura-sentinel/releases',
+    github: 'https://github.com/JullMol/aura-sentinel'
+  },
+{
     title: 'Aegis-X - Network Security Suite',
     slug: 'aegis-x',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800',
