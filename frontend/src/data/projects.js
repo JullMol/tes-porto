@@ -82,6 +82,47 @@ export default [
     },
   },
   {
+    title: "Warehouse MARL - Multi-Agent Reinforcement Learning Simulation",
+    slug: "warehouse-marl",
+    year: "Jan 2026",
+    role: "Independent AI & Desktop Application Project",
+    heroImage:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600",
+    summary:
+      "Advanced desktop simulation engine for testing and visualizing Multi-Agent Reinforcement Learning (MARL) algorithms in warehouse logistics. Features interactive grid editor, real-time robot coordination, and Python AI backend integration via Wails framework.",
+    sections: {
+      problem:
+        "Warehouse automation requires sophisticated multi-agent coordination where robots must navigate, avoid collisions, and complete tasks efficiently. Researchers and developers need accessible platforms to experiment with MARL algorithms without the complexity of physical hardware or expensive cloud simulations.",
+      approach: [
+        "Built high-performance Wails desktop application with Go backend handling simulation state and robot coordination logic, bridging to Python AI server via HTTP API.",
+        "Developed interactive grid editor enabling users to design custom warehouse layouts with racks, obstacles, robot spawn points, and task assignments in real-time.",
+        "Implemented Smart Hybrid RL Engine combining trained PPO models with A* pathfinding fallback and anti-loop detection for robust robot navigation.",
+        "Created Futuristic Command Center UI with Svelte featuring animated HUD elements, holographic status displays, and real-time telemetry visualization.",
+        "Designed modular architecture allowing hot-swappable AI backends (PyTorch, TensorFlow) via standardized REST API for action inference.",
+      ],
+      tech: [
+        "Go",
+        "Python",
+        "Svelte",
+        "Wails",
+        "FastAPI",
+        "PyTorch",
+        "Reinforcement Learning",
+        "A* Pathfinding",
+        "Multi-Agent Systems",
+        "Desktop App",
+      ],
+      impact: [
+        "Demonstrates end-to-end MARL pipeline from environment design through multi-agent coordination to real-time visualization in a production-ready desktop application.",
+        "Platform enables rapid prototyping of warehouse automation strategies with sub-200ms action inference latency across multiple simultaneous robot agents.",
+      ],
+    },
+    links: {
+      demo: "https://github.com/JullMol/warehouse-marl/releases",
+      github: "https://github.com/JullMol/warehouse-marl",
+    },
+  },
+  {
     title: "Nebula - Distributed Serverless Code Execution Platform",
     slug: "nebula",
     year: "Jan 2026",

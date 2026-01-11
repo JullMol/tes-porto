@@ -74,6 +74,16 @@ const internalProjects = [
     github: 'https://github.com/JullMol/aegis-x'
   },
 {
+    title: 'Warehouse MARL - Multi-Agent RL Simulation',
+    slug: 'warehouse-marl',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
+    tags: ['Go', 'Python', 'Svelte', 'Wails', 'Reinforcement Learning', 'Multi-Agent Systems', 'FastAPI', 'PyTorch', 'Desktop App', 'AI'],
+    description:
+      'Advanced warehouse simulation engine for testing MARL algorithms. Features interactive grid editor, real-time robot coordination with PPO/A* hybrid navigation, and Futuristic Command Center UI.',
+    demo: 'https://github.com/JullMol/warehouse-marl/releases',
+    github: 'https://github.com/JullMol/warehouse-marl'
+  },
+{
     title: 'Nebula - Distributed Serverless Platform',
     slug: 'nebula',
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800',
